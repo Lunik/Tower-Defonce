@@ -1,5 +1,5 @@
 #!/bin/sh
-
+#push correctement
 echo "\n===> Netoyage\n"
 find . -iname "*Icon*" -o -iname "*DS*" -exec rm {} \;
 
