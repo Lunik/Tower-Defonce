@@ -1,0 +1,13 @@
+#!/bin/sh
+echo "===> Creation des fichier obj et bin"
+mkdir obj
+mkdir bin
+
+echo "\n===> Make Clean\n"
+make clean
+
+echo "\n===> Make\n"
+make
+
+echo "\n===> Finished !\n"
+echo "Launch with bin/jeu\n"

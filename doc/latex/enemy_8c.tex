@@ -1,0 +1,796 @@
+\hypertarget{enemy_8c}{}\section{src/enemy.c File Reference}
+\label{enemy_8c}\index{src/enemy.\+c@{src/enemy.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}enemy.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$ \hyperlink{enemy_8c_a140fcc8d7df8825e16dcd13a10e2c6e5}{new\+Enemy} (unsigned char type, int num)
+\begin{DoxyCompactList}\small\item\em Crée un nouvel ennemi du type voulu avec l\textquotesingle{}id voulue. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a93b496d449cf4596b9d638694cc48a99}{set\+Enemy\+Fly} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}ennemi en ennemi de type volant. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a1eb36e2b817c0bfd155d826926b1c14f}{set\+Enemy\+Classic} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Transforme un ennemi en l\textquotesingle{}ennemi classique. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a86a8714864a4a7740d191ad31843574a}{set\+Enemy\+Boss} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Transforme l\textquotesingle{}ennemi en ennemi de type boss. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a4d47d8b12fed8b6191b35c3ea1cfe8fb}{update\+Enemy} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Met à jour la position de l\textquotesingle{}ennemi et sa vie. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_ae1b64ffa2580404a5ad0fcf2f895634c}{move\+Enemy} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Déplace l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a79e15babca44b77777e260e80af4f58f}{take\+Enemy\+Damage} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int dmg)
+\begin{DoxyCompactList}\small\item\em Modifie les points de vie de l\textquotesingle{}ennemi en lui infligeant des dégats. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a680997298324f711b2c44cf8f96fb562}{kill\+Enemy} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Détruit l\textquotesingle{}ennemi et libère sa mémoire. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a8e8b44706512c0e5c1b0a08a3b234ac0}{evolve\+Enemy} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int wave)
+\begin{DoxyCompactList}\small\item\em Evolue un ennemies, augmentation des pdv + loots. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a68d4c4e21ff63f6bb8c09a96f134109c}{get\+Enemy\+Id} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}identifiant de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_af004716af5f6ab23f9c20d2dbaf47a85}{set\+Enemy\+Id} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int I\+D)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}identifiant de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+unsigned char \hyperlink{enemy_8c_afb4552a482d318464936a0d0d506f049}{get\+Enemy\+Type} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie le type de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a3a886db3aab068209ca447a98de344e1}{set\+Enemy\+Type} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, unsigned char c)
+\begin{DoxyCompactList}\small\item\em Modifie le type de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_abbebbae9f7c805059c6378df29b44280}{get\+Enemy\+Flying} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie si l\textquotesingle{}ennemi est volant. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a7b63ad26d9c8cd859dc3fc8c558dd87d}{set\+Enemy\+Flying} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int fly)
+\begin{DoxyCompactList}\small\item\em Transforme l\textquotesingle{}ennemi en ennemi volant. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_afcd8425ab5c03ef83aa1d0ba788a0cb4}{get\+Enemy\+H\+P} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie les points de vie de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_ac65c6ebc2d52139912e8f952d6a78d20}{set\+Enemy\+H\+P} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int hp)
+\begin{DoxyCompactList}\small\item\em Modifie les points de vie de l\textquotesingle{}enenemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_aa136fe5aacbf9e87e09b6363d72486cd}{get\+Enemy\+Max\+Hp} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie les points de vie maximum de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a63a144708aad0de0470c5fc769b6d733}{set\+Enemy\+Max\+Hp} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int hp)
+\begin{DoxyCompactList}\small\item\em Modifie les points de vie maximum de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_afd0940ad93d365838bd891d555902c8a}{get\+Enemy\+Dmg} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie les dommages que peut effectuer l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a102e9130efbeb6c1c33bd47752de5437}{set\+Enemy\+Dmg} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int dmg)
+\begin{DoxyCompactList}\small\item\em Modifie les dommages que peut effectuer l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+\hyperlink{coordonates_8h_aff9d4468ac7a973ce7e5cfb5bd39bc33}{Coord} \hyperlink{enemy_8c_a74dc715019c542e4aad29473727c2732}{get\+Enemy\+Position} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Fournit la position actuelle de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_ad1bd083df34a0b1538fba579fdb18ad0}{set\+Enemy\+Position} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int x, int y)
+\begin{DoxyCompactList}\small\item\em Modifie les coordonnées de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a01a298df416f9d9425c8f4137855afc5}{get\+Enemy\+Where\+Am\+I} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie la position de l\textquotesingle{}ennemi dans le chemin. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_ac933ac33b9dd60d1ca0e509b41524b0d}{set\+Enemy\+Where\+Am\+I} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int wmi)
+\begin{DoxyCompactList}\small\item\em Modifie la position de l\textquotesingle{}ennemi dans le chemin. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a9c6c8f756f28d013899dfcc6c6d35ac8}{get\+Enemy\+Path\+Count} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_ada36117024925e454d3d3554f00c77c4}{set\+Enemy\+Path\+Count} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int pathcount)
+\begin{DoxyCompactList}\small\item\em Modifie le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_ae57e04a42a885e03c33e3b20c386ea8e}{get\+Enemy\+Loot} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a0996f66c8334782ce154600ad332b996}{set\+Enemy\+Loot} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int loot)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a81e8b532dfe2bb009c11a82e2b1d206f}{get\+Enemy\+Slow\+Coeff} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie le coefficient de ralentissement de la vitesse de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_adeee1285fd51125c28e0d6a128c97af2}{get\+Enemy\+Slow\+Timer} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie le temps de ralentissement de la vitesse de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a406a78d2afb6c144b0e7c6c5afebd335}{slow\+Enemy} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int coeff, int length)
+\begin{DoxyCompactList}\small\item\em Change la vitesse de l\textquotesingle{}ennemi et lance le timer du temps ralenti. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a1bfafdab12ce6d51733cb5af04d49226}{get\+Enemy\+Move\+Timer} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie la vitesse actuelle de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_a9aafd818ab256769273f8762c5dbcbf4}{set\+Enemy\+Move\+Timer} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int timer)
+\begin{DoxyCompactList}\small\item\em Modifie la vitesse actuelle de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_a4b1733fd84e3490d2ee4efafa32057d7}{get\+Enemy\+Base\+Move\+Timer} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie la vitesse initiale de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_adad495a1ac56e5dd3e01de579741da02}{set\+Enemy\+Base\+Move\+Timer} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int timer)
+\begin{DoxyCompactList}\small\item\em Modifie la vitesse de base de l\textquotesingle{}ennemi. \end{DoxyCompactList}\item 
+int \hyperlink{enemy_8c_ae9b39b558b5d469947bf3a9faa8cfbe2}{get\+Enemy\+Invincible} (const \hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Renvoie si l\textquotesingle{}ennemi est invinvible. \end{DoxyCompactList}\item 
+void \hyperlink{enemy_8c_aca365708566134931fc2f96cc214d36b}{set\+Enemy\+Invincible} (\hyperlink{enemy_8h_ae3ac1c5e4d43de724487dfc83b509fd4}{Enemy} $\ast$e, int Yes\+Or\+No)
+\begin{DoxyCompactList}\small\item\em Modifie si l\textquotesingle{}ennemi est invinvible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{enemy_8c_a8e8b44706512c0e5c1b0a08a3b234ac0}{}\index{enemy.\+c@{enemy.\+c}!evolve\+Enemy@{evolve\+Enemy}}
+\index{evolve\+Enemy@{evolve\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{evolve\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void evolve\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{wave}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a8e8b44706512c0e5c1b0a08a3b234ac0}
+
+
+Evolue un ennemies, augmentation des pdv + loots. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à evoluer \\
+\hline
+{\em wave} & numero de la vague \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a4b1733fd84e3490d2ee4efafa32057d7}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Base\+Move\+Timer@{get\+Enemy\+Base\+Move\+Timer}}
+\index{get\+Enemy\+Base\+Move\+Timer@{get\+Enemy\+Base\+Move\+Timer}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Base\+Move\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Base\+Move\+Timer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a4b1733fd84e3490d2ee4efafa32057d7}
+
+
+Renvoie la vitesse initiale de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la vitesse initiale de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_afd0940ad93d365838bd891d555902c8a}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Dmg@{get\+Enemy\+Dmg}}
+\index{get\+Enemy\+Dmg@{get\+Enemy\+Dmg}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Dmg}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Dmg (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_afd0940ad93d365838bd891d555902c8a}
+
+
+Renvoie les dommages que peut effectuer l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne les dommages que peut effectuer l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_abbebbae9f7c805059c6378df29b44280}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Flying@{get\+Enemy\+Flying}}
+\index{get\+Enemy\+Flying@{get\+Enemy\+Flying}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Flying}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Flying (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_abbebbae9f7c805059c6378df29b44280}
+
+
+Renvoie si l\textquotesingle{}ennemi est volant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne si l\textquotesingle{}ennemi est volant 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_afcd8425ab5c03ef83aa1d0ba788a0cb4}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+H\+P@{get\+Enemy\+H\+P}}
+\index{get\+Enemy\+H\+P@{get\+Enemy\+H\+P}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+H\+P}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+H\+P (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_afcd8425ab5c03ef83aa1d0ba788a0cb4}
+
+
+Renvoie les points de vie de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne les points de vie de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a68d4c4e21ff63f6bb8c09a96f134109c}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Id@{get\+Enemy\+Id}}
+\index{get\+Enemy\+Id@{get\+Enemy\+Id}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Id}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Id (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a68d4c4e21ff63f6bb8c09a96f134109c}
+
+
+Renvoie l\textquotesingle{}identifiant de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne l\textquotesingle{}identifiant de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_ae9b39b558b5d469947bf3a9faa8cfbe2}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Invincible@{get\+Enemy\+Invincible}}
+\index{get\+Enemy\+Invincible@{get\+Enemy\+Invincible}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Invincible}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Invincible (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ae9b39b558b5d469947bf3a9faa8cfbe2}
+
+
+Renvoie si l\textquotesingle{}ennemi est invinvible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne si l\textquotesingle{}ennemi est invinvible 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_ae57e04a42a885e03c33e3b20c386ea8e}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Loot@{get\+Enemy\+Loot}}
+\index{get\+Enemy\+Loot@{get\+Enemy\+Loot}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Loot}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Loot (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ae57e04a42a885e03c33e3b20c386ea8e}
+
+
+Renvoie l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_aa136fe5aacbf9e87e09b6363d72486cd}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Max\+Hp@{get\+Enemy\+Max\+Hp}}
+\index{get\+Enemy\+Max\+Hp@{get\+Enemy\+Max\+Hp}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Max\+Hp}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Max\+Hp (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_aa136fe5aacbf9e87e09b6363d72486cd}
+
+
+Renvoie les points de vie maximum de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne les points de vie maximum de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a1bfafdab12ce6d51733cb5af04d49226}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Move\+Timer@{get\+Enemy\+Move\+Timer}}
+\index{get\+Enemy\+Move\+Timer@{get\+Enemy\+Move\+Timer}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Move\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Move\+Timer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a1bfafdab12ce6d51733cb5af04d49226}
+
+
+Renvoie la vitesse actuelle de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la vitesse actuelle de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a9c6c8f756f28d013899dfcc6c6d35ac8}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Path\+Count@{get\+Enemy\+Path\+Count}}
+\index{get\+Enemy\+Path\+Count@{get\+Enemy\+Path\+Count}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Path\+Count}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Path\+Count (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a9c6c8f756f28d013899dfcc6c6d35ac8}
+
+
+Renvoie le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a74dc715019c542e4aad29473727c2732}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Position@{get\+Enemy\+Position}}
+\index{get\+Enemy\+Position@{get\+Enemy\+Position}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Position}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Coord} get\+Enemy\+Position (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a74dc715019c542e4aad29473727c2732}
+
+
+Fournit la position actuelle de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi dont on récupère la position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la position actuelle de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a81e8b532dfe2bb009c11a82e2b1d206f}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Slow\+Coeff@{get\+Enemy\+Slow\+Coeff}}
+\index{get\+Enemy\+Slow\+Coeff@{get\+Enemy\+Slow\+Coeff}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Slow\+Coeff}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Slow\+Coeff (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a81e8b532dfe2bb009c11a82e2b1d206f}
+
+
+Renvoie le coefficient de ralentissement de la vitesse de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne le coefficient de ralentissement de la vitesse de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_adeee1285fd51125c28e0d6a128c97af2}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Slow\+Timer@{get\+Enemy\+Slow\+Timer}}
+\index{get\+Enemy\+Slow\+Timer@{get\+Enemy\+Slow\+Timer}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Slow\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Slow\+Timer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_adeee1285fd51125c28e0d6a128c97af2}
+
+
+Renvoie le temps de ralentissement de la vitesse de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne le temps de ralentissement de la vitesse de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_afb4552a482d318464936a0d0d506f049}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Type@{get\+Enemy\+Type}}
+\index{get\+Enemy\+Type@{get\+Enemy\+Type}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Type}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char get\+Enemy\+Type (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_afb4552a482d318464936a0d0d506f049}
+
+
+Renvoie le type de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne le type de l\textquotesingle{}ennemi 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a01a298df416f9d9425c8f4137855afc5}{}\index{enemy.\+c@{enemy.\+c}!get\+Enemy\+Where\+Am\+I@{get\+Enemy\+Where\+Am\+I}}
+\index{get\+Enemy\+Where\+Am\+I@{get\+Enemy\+Where\+Am\+I}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{get\+Enemy\+Where\+Am\+I}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Enemy\+Where\+Am\+I (
+\begin{DoxyParamCaption}
+\item[{const {\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a01a298df416f9d9425c8f4137855afc5}
+
+
+Renvoie la position de l\textquotesingle{}ennemi dans le chemin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la position l\textquotesingle{}ennemi dans le chemin 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_a680997298324f711b2c44cf8f96fb562}{}\index{enemy.\+c@{enemy.\+c}!kill\+Enemy@{kill\+Enemy}}
+\index{kill\+Enemy@{kill\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{kill\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void kill\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a680997298324f711b2c44cf8f96fb562}
+
+
+Détruit l\textquotesingle{}ennemi et libère sa mémoire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à détruire \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_ae1b64ffa2580404a5ad0fcf2f895634c}{}\index{enemy.\+c@{enemy.\+c}!move\+Enemy@{move\+Enemy}}
+\index{move\+Enemy@{move\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{move\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void move\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ae1b64ffa2580404a5ad0fcf2f895634c}
+
+
+Déplace l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointeur sur Enemy \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a140fcc8d7df8825e16dcd13a10e2c6e5}{}\index{enemy.\+c@{enemy.\+c}!new\+Enemy@{new\+Enemy}}
+\index{new\+Enemy@{new\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{new\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Enemy}$\ast$ new\+Enemy (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{type, }
+\item[{int}]{num}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a140fcc8d7df8825e16dcd13a10e2c6e5}
+
+
+Crée un nouvel ennemi du type voulu avec l\textquotesingle{}id voulue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char} & le type du nouvel ennemi \\
+\hline
+{\em id} & son id \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne un pointeur sur Enemy 
+\end{DoxyReturn}
+\hypertarget{enemy_8c_adad495a1ac56e5dd3e01de579741da02}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Base\+Move\+Timer@{set\+Enemy\+Base\+Move\+Timer}}
+\index{set\+Enemy\+Base\+Move\+Timer@{set\+Enemy\+Base\+Move\+Timer}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Base\+Move\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Base\+Move\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{timer}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_adad495a1ac56e5dd3e01de579741da02}
+
+
+Modifie la vitesse de base de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em timer} & entier indiquant la vitesse de base de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a86a8714864a4a7740d191ad31843574a}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Boss@{set\+Enemy\+Boss}}
+\index{set\+Enemy\+Boss@{set\+Enemy\+Boss}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Boss}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Boss (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a86a8714864a4a7740d191ad31843574a}
+
+
+Transforme l\textquotesingle{}ennemi en ennemi de type boss. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a1eb36e2b817c0bfd155d826926b1c14f}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Classic@{set\+Enemy\+Classic}}
+\index{set\+Enemy\+Classic@{set\+Enemy\+Classic}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Classic}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Classic (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a1eb36e2b817c0bfd155d826926b1c14f}
+
+
+Transforme un ennemi en l\textquotesingle{}ennemi classique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a102e9130efbeb6c1c33bd47752de5437}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Dmg@{set\+Enemy\+Dmg}}
+\index{set\+Enemy\+Dmg@{set\+Enemy\+Dmg}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Dmg}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Dmg (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{dmg}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a102e9130efbeb6c1c33bd47752de5437}
+
+
+Modifie les dommages que peut effectuer l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em dmg} & entier indiquant les dommages que peut effectuer l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a93b496d449cf4596b9d638694cc48a99}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Fly@{set\+Enemy\+Fly}}
+\index{set\+Enemy\+Fly@{set\+Enemy\+Fly}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Fly}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Fly (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a93b496d449cf4596b9d638694cc48a99}
+
+
+Modifie l\textquotesingle{}ennemi en ennemi de type volant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a7b63ad26d9c8cd859dc3fc8c558dd87d}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Flying@{set\+Enemy\+Flying}}
+\index{set\+Enemy\+Flying@{set\+Enemy\+Flying}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Flying}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Flying (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{fly}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a7b63ad26d9c8cd859dc3fc8c558dd87d}
+
+
+Transforme l\textquotesingle{}ennemi en ennemi volant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+{\em fly} & entier indiquant si l\textquotesingle{}ennemi devient volant \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_ac65c6ebc2d52139912e8f952d6a78d20}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+H\+P@{set\+Enemy\+H\+P}}
+\index{set\+Enemy\+H\+P@{set\+Enemy\+H\+P}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+H\+P}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+H\+P (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{hp}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ac65c6ebc2d52139912e8f952d6a78d20}
+
+
+Modifie les points de vie de l\textquotesingle{}enenemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier, \\
+\hline
+{\em hp} & les nouveaux points de vie de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_af004716af5f6ab23f9c20d2dbaf47a85}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Id@{set\+Enemy\+Id}}
+\index{set\+Enemy\+Id@{set\+Enemy\+Id}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Id}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Id (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{I\+D}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_af004716af5f6ab23f9c20d2dbaf47a85}
+
+
+Modifie l\textquotesingle{}identifiant de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointeur sur Enemy \\
+\hline
+{\em I\+D} & l\textquotesingle{}identifiant de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_aca365708566134931fc2f96cc214d36b}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Invincible@{set\+Enemy\+Invincible}}
+\index{set\+Enemy\+Invincible@{set\+Enemy\+Invincible}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Invincible}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Invincible (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{Yes\+Or\+No}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_aca365708566134931fc2f96cc214d36b}
+
+
+Modifie si l\textquotesingle{}ennemi est invinvible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a0996f66c8334782ce154600ad332b996}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Loot@{set\+Enemy\+Loot}}
+\index{set\+Enemy\+Loot@{set\+Enemy\+Loot}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Loot}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Loot (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{loot}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a0996f66c8334782ce154600ad332b996}
+
+
+Modifie l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em loot} & entier indiquant l\textquotesingle{}argent gagné après avoir tué l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a63a144708aad0de0470c5fc769b6d733}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Max\+Hp@{set\+Enemy\+Max\+Hp}}
+\index{set\+Enemy\+Max\+Hp@{set\+Enemy\+Max\+Hp}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Max\+Hp}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Max\+Hp (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{hp}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a63a144708aad0de0470c5fc769b6d733}
+
+
+Modifie les points de vie maximum de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em hp} & entier indiquant les points de vie maximum de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a9aafd818ab256769273f8762c5dbcbf4}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Move\+Timer@{set\+Enemy\+Move\+Timer}}
+\index{set\+Enemy\+Move\+Timer@{set\+Enemy\+Move\+Timer}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Move\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Move\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{timer}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a9aafd818ab256769273f8762c5dbcbf4}
+
+
+Modifie la vitesse actuelle de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em timer} & entier indiquant la vitesse actuelle de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_ada36117024925e454d3d3554f00c77c4}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Path\+Count@{set\+Enemy\+Path\+Count}}
+\index{set\+Enemy\+Path\+Count@{set\+Enemy\+Path\+Count}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Path\+Count}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Path\+Count (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{pathcount}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ada36117024925e454d3d3554f00c77c4}
+
+
+Modifie le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em pathcount} & entier indiquant le nombre de position parcourue par l\textquotesingle{}ennemi dans le chemin \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_ad1bd083df34a0b1538fba579fdb18ad0}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Position@{set\+Enemy\+Position}}
+\index{set\+Enemy\+Position@{set\+Enemy\+Position}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Position}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Position (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ad1bd083df34a0b1538fba579fdb18ad0}
+
+
+Modifie les coordonnées de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à modifier \\
+\hline
+{\em x} & position \\
+\hline
+{\em y} & int \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a3a886db3aab068209ca447a98de344e1}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Type@{set\+Enemy\+Type}}
+\index{set\+Enemy\+Type@{set\+Enemy\+Type}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Type}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{unsigned char}]{c}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a3a886db3aab068209ca447a98de344e1}
+
+
+Modifie le type de l\textquotesingle{}ennemi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointeur sur Enemy \\
+\hline
+{\em c} & caractère indiquant le type de l\textquotesingle{}ennemi \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_ac933ac33b9dd60d1ca0e509b41524b0d}{}\index{enemy.\+c@{enemy.\+c}!set\+Enemy\+Where\+Am\+I@{set\+Enemy\+Where\+Am\+I}}
+\index{set\+Enemy\+Where\+Am\+I@{set\+Enemy\+Where\+Am\+I}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{set\+Enemy\+Where\+Am\+I}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Enemy\+Where\+Am\+I (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{wmi}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_ac933ac33b9dd60d1ca0e509b41524b0d}
+
+
+Modifie la position de l\textquotesingle{}ennemi dans le chemin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi nous intéressant \\
+\hline
+{\em wmi} & entier indiquant la position de l\textquotesingle{}ennemi dans le chemin \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a406a78d2afb6c144b0e7c6c5afebd335}{}\index{enemy.\+c@{enemy.\+c}!slow\+Enemy@{slow\+Enemy}}
+\index{slow\+Enemy@{slow\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{slow\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void slow\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{coeff, }
+\item[{int}]{timer}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a406a78d2afb6c144b0e7c6c5afebd335}
+
+
+Change la vitesse de l\textquotesingle{}ennemi et lance le timer du temps ralenti. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & ennemi à ralentir \\
+\hline
+{\em timer} & le coefficient de ralentissement  length la durée \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a79e15babca44b77777e260e80af4f58f}{}\index{enemy.\+c@{enemy.\+c}!take\+Enemy\+Damage@{take\+Enemy\+Damage}}
+\index{take\+Enemy\+Damage@{take\+Enemy\+Damage}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{take\+Enemy\+Damage}]{\setlength{\rightskip}{0pt plus 5cm}void take\+Enemy\+Damage (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e, }
+\item[{int}]{dmg}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a79e15babca44b77777e260e80af4f58f}
+
+
+Modifie les points de vie de l\textquotesingle{}ennemi en lui infligeant des dégats. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi perdant de la vie \\
+\hline
+{\em dmg} & les dégats qu\textquotesingle{}il s\textquotesingle{}est pris \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemy_8c_a4d47d8b12fed8b6191b35c3ea1cfe8fb}{}\index{enemy.\+c@{enemy.\+c}!update\+Enemy@{update\+Enemy}}
+\index{update\+Enemy@{update\+Enemy}!enemy.\+c@{enemy.\+c}}
+\subsubsection[{update\+Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void update\+Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Enemy} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{enemy_8c_a4d47d8b12fed8b6191b35c3ea1cfe8fb}
+
+
+Met à jour la position de l\textquotesingle{}ennemi et sa vie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & l\textquotesingle{}ennemi à mettre à jour \\
+\hline
+\end{DoxyParams}

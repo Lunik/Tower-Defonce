@@ -1,0 +1,276 @@
+\hypertarget{vector_8h}{}\section{src/vector.h File Reference}
+\label{vector_8h}\index{src/vector.\+h@{src/vector.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$math.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs_vector}{s\+Vector}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structs_vector}{s\+Vector} \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{vector_8h_a029ff3ba47e3dd0021ba8113d1a43b14}{get\+Vector\+Abs} (const \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Rend l\textquotesingle{}abscisse du vecteur. \end{DoxyCompactList}\item 
+double \hyperlink{vector_8h_a4d3d47eda1496ea828719b759f37c4bf}{get\+Vector\+Ord} (const \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Rend l\textquotesingle{}ordonnée du vecteur. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_ad4eda3b3b3aa1ca728a221a26e78f160}{init\+Vector} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Initialise un vecteur avec comme coordonnées (0,0) \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a67ea4a7cd1c0919c439381cf674e2dd6}{set\+Vector\+Ord} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v, double o)
+\begin{DoxyCompactList}\small\item\em modifie l\textquotesingle{}ordonnée du vecteur \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a120858e8c3427283b5b65cd60abc8cf1}{set\+Vector\+Abs} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v, double a)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}abscisse du vecteur. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a9ba01b38057c440b5ac984c448c9c507}{set\+Vectorcoord} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v, double abs, double ord)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}abscisse et l\textquotesingle{}ordonnée du vecteur. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_ab43951fa8607e5fdbc845160c720a099}{multiply\+Vector} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v, double coeff)
+\begin{DoxyCompactList}\small\item\em Multiplie le vecteur par un scalaire. \end{DoxyCompactList}\item 
+\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} \hyperlink{vector_8h_a54358667038a4f07a309c8bcb84c6c84}{add\+Vectors} (const \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$u, const \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Additionne deux vecteurs entre eux. \end{DoxyCompactList}\item 
+double \hyperlink{vector_8h_a4cec1597a5bb261570017695dab1621d}{get\+Vector\+Norm} (const \hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em rend la norme d\textquotesingle{}un vecteur \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a3de9e8b0edddd6933530ddd40b4fe097}{set\+Vectorto\+Left} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Dirige un vecteur vers la gauche tout en conservant sa norme. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a2b309799619ad68918533f61affa80e2}{set\+Vectorto\+Right} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Dirige un vecteur vers la droite tout en conseravtn sa norme. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a528e28b51d4fb9bb498f27b60ee3f27f}{set\+Vectorto\+Up} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Dirige un vecteur vers le haut tout en conservant sa norme. \end{DoxyCompactList}\item 
+void \hyperlink{vector_8h_a9f159432b6bc615537e2ba11bd25e2d3}{set\+Vectorto\+Down} (\hyperlink{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{Vector} $\ast$v)
+\begin{DoxyCompactList}\small\item\em Dirige un vecteru vers le bas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}{}\index{vector.\+h@{vector.\+h}!Vector@{Vector}}
+\index{Vector@{Vector}!vector.\+h@{vector.\+h}}
+\subsubsection[{Vector}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf s\+Vector} {\bf Vector}}\label{vector_8h_a5d4579f5431548e0ccedffedd833d8bb}
+
+
+\subsection{Function Documentation}
+\hypertarget{vector_8h_a54358667038a4f07a309c8bcb84c6c84}{}\index{vector.\+h@{vector.\+h}!add\+Vectors@{add\+Vectors}}
+\index{add\+Vectors@{add\+Vectors}!vector.\+h@{vector.\+h}}
+\subsubsection[{add\+Vectors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vector} add\+Vectors (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector} $\ast$}]{u, }
+\item[{const {\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a54358667038a4f07a309c8bcb84c6c84}
+
+
+Additionne deux vecteurs entre eux. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & et v les deux vecteurs à aditionner \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le vecteur somme 
+\end{DoxyReturn}
+\hypertarget{vector_8h_a029ff3ba47e3dd0021ba8113d1a43b14}{}\index{vector.\+h@{vector.\+h}!get\+Vector\+Abs@{get\+Vector\+Abs}}
+\index{get\+Vector\+Abs@{get\+Vector\+Abs}!vector.\+h@{vector.\+h}}
+\subsubsection[{get\+Vector\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}double get\+Vector\+Abs (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a029ff3ba47e3dd0021ba8113d1a43b14}
+
+
+Rend l\textquotesingle{}abscisse du vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur dont on cherche l\textquotesingle{}abscisse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}attribut x du vecteur 
+\end{DoxyReturn}
+\hypertarget{vector_8h_a4cec1597a5bb261570017695dab1621d}{}\index{vector.\+h@{vector.\+h}!get\+Vector\+Norm@{get\+Vector\+Norm}}
+\index{get\+Vector\+Norm@{get\+Vector\+Norm}!vector.\+h@{vector.\+h}}
+\subsubsection[{get\+Vector\+Norm}]{\setlength{\rightskip}{0pt plus 5cm}double get\+Vector\+Norm (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a4cec1597a5bb261570017695dab1621d}
+
+
+rend la norme d\textquotesingle{}un vecteur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur dont on veut la norme \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a4d3d47eda1496ea828719b759f37c4bf}{}\index{vector.\+h@{vector.\+h}!get\+Vector\+Ord@{get\+Vector\+Ord}}
+\index{get\+Vector\+Ord@{get\+Vector\+Ord}!vector.\+h@{vector.\+h}}
+\subsubsection[{get\+Vector\+Ord}]{\setlength{\rightskip}{0pt plus 5cm}double get\+Vector\+Ord (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a4d3d47eda1496ea828719b759f37c4bf}
+
+
+Rend l\textquotesingle{}ordonnée du vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur dont on cherche l\textquotesingle{}ordonnée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}attribut y du vecteur 
+\end{DoxyReturn}
+\hypertarget{vector_8h_ad4eda3b3b3aa1ca728a221a26e78f160}{}\index{vector.\+h@{vector.\+h}!init\+Vector@{init\+Vector}}
+\index{init\+Vector@{init\+Vector}!vector.\+h@{vector.\+h}}
+\subsubsection[{init\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_ad4eda3b3b3aa1ca728a221a26e78f160}
+
+
+Initialise un vecteur avec comme coordonnées (0,0) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le nouveau vecteur à initialiser \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_ab43951fa8607e5fdbc845160c720a099}{}\index{vector.\+h@{vector.\+h}!multiply\+Vector@{multiply\+Vector}}
+\index{multiply\+Vector@{multiply\+Vector}!vector.\+h@{vector.\+h}}
+\subsubsection[{multiply\+Vector}]{\setlength{\rightskip}{0pt plus 5cm}void multiply\+Vector (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v, }
+\item[{double}]{coeff}
+\end{DoxyParamCaption}
+)}\label{vector_8h_ab43951fa8607e5fdbc845160c720a099}
+
+
+Multiplie le vecteur par un scalaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur qu\textquotesingle{}on modifie \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a120858e8c3427283b5b65cd60abc8cf1}{}\index{vector.\+h@{vector.\+h}!set\+Vector\+Abs@{set\+Vector\+Abs}}
+\index{set\+Vector\+Abs@{set\+Vector\+Abs}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vector\+Abs}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vector\+Abs (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v, }
+\item[{double}]{a}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a120858e8c3427283b5b65cd60abc8cf1}
+
+
+Modifie l\textquotesingle{}abscisse du vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur dont on modifie l\textquotesingle{}abscisse a la nouvelle abscisse \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a9ba01b38057c440b5ac984c448c9c507}{}\index{vector.\+h@{vector.\+h}!set\+Vectorcoord@{set\+Vectorcoord}}
+\index{set\+Vectorcoord@{set\+Vectorcoord}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vectorcoord}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vectorcoord (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v, }
+\item[{double}]{abs, }
+\item[{double}]{ord}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a9ba01b38057c440b5ac984c448c9c507}
+
+
+Modifie l\textquotesingle{}abscisse et l\textquotesingle{}ordonnée du vecteur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vecteur à modifier, abs la nouvelle abscisse, ord la nouvelle ordonnée \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a67ea4a7cd1c0919c439381cf674e2dd6}{}\index{vector.\+h@{vector.\+h}!set\+Vector\+Ord@{set\+Vector\+Ord}}
+\index{set\+Vector\+Ord@{set\+Vector\+Ord}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vector\+Ord}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vector\+Ord (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v, }
+\item[{double}]{o}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a67ea4a7cd1c0919c439381cf674e2dd6}
+
+
+modifie l\textquotesingle{}ordonnée du vecteur 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur dont on modifie l\textquotesingle{}ordonnée o la nouvelle ordonnée \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a9f159432b6bc615537e2ba11bd25e2d3}{}\index{vector.\+h@{vector.\+h}!set\+Vectorto\+Down@{set\+Vectorto\+Down}}
+\index{set\+Vectorto\+Down@{set\+Vectorto\+Down}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vectorto\+Down}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vectorto\+Down (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a9f159432b6bc615537e2ba11bd25e2d3}
+
+
+Dirige un vecteru vers le bas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur à rediriger \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a3de9e8b0edddd6933530ddd40b4fe097}{}\index{vector.\+h@{vector.\+h}!set\+Vectorto\+Left@{set\+Vectorto\+Left}}
+\index{set\+Vectorto\+Left@{set\+Vectorto\+Left}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vectorto\+Left}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vectorto\+Left (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a3de9e8b0edddd6933530ddd40b4fe097}
+
+
+Dirige un vecteur vers la gauche tout en conservant sa norme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vectuer à rediriger \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a2b309799619ad68918533f61affa80e2}{}\index{vector.\+h@{vector.\+h}!set\+Vectorto\+Right@{set\+Vectorto\+Right}}
+\index{set\+Vectorto\+Right@{set\+Vectorto\+Right}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vectorto\+Right}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vectorto\+Right (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a2b309799619ad68918533f61affa80e2}
+
+
+Dirige un vecteur vers la droite tout en conseravtn sa norme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vectuer à rediriger \\
+\hline
+\end{DoxyParams}
+\hypertarget{vector_8h_a528e28b51d4fb9bb498f27b60ee3f27f}{}\index{vector.\+h@{vector.\+h}!set\+Vectorto\+Up@{set\+Vectorto\+Up}}
+\index{set\+Vectorto\+Up@{set\+Vectorto\+Up}!vector.\+h@{vector.\+h}}
+\subsubsection[{set\+Vectorto\+Up}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Vectorto\+Up (
+\begin{DoxyParamCaption}
+\item[{{\bf Vector} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{vector_8h_a528e28b51d4fb9bb498f27b60ee3f27f}
+
+
+Dirige un vecteur vers le haut tout en conservant sa norme. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & le vecteur à rediriger \\
+\hline
+\end{DoxyParams}
