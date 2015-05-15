@@ -1,0 +1,208 @@
+\hypertarget{sdl_fct_8c}{}\section{src/sdl\+Fct.c File Reference}
+\label{sdl_fct_8c}\index{src/sdl\+Fct.\+c@{src/sdl\+Fct.\+c}}
+{\ttfamily \#include \char`\"{}sdl\+Fct.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{sdl_fct_8c_ad6370eb6fe0d2c3fc0ceb146cd9f34dc}{sdl\+Load\+Image} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Charge une image. \end{DoxyCompactList}\item 
+void \hyperlink{sdl_fct_8c_a2cefe965d3bc1790adde1b62c4041fa1}{sdl\+Apply\+Surface} (S\+D\+L\+\_\+\+Surface $\ast$source, S\+D\+L\+\_\+\+Surface $\ast$destination, int x, int y)
+\begin{DoxyCompactList}\small\item\em Applique une surface sur une autre avec une position. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{sdl_fct_8c_ae626c891f4c3d1ac12373ca0bc039b3a}{text\+To\+Surface} (char txt\mbox{[}255\mbox{]}, S\+D\+L\+\_\+\+Color color, T\+T\+F\+\_\+\+Font $\ast$police)
+\begin{DoxyCompactList}\small\item\em Convertie un tableau de char en S\+D\+L\+\_\+\+Surface. \end{DoxyCompactList}\item 
+\hyperlink{struct_sprite}{Sprite} $\ast$ \hyperlink{sdl_fct_8c_a50f915329d1e46d41cb080d397a3226f}{new\+Sprite} ()
+\item 
+void \hyperlink{sdl_fct_8c_ad6fc02ca05992d4aa41da5ad3eeb8525}{add\+Sprite} (\hyperlink{struct_sprite}{Sprite} $\ast$s, char $\ast$path)
+\item 
+void \hyperlink{sdl_fct_8c_a7a8e0537218a4135caa1de61a1f0e12a}{update\+Sprite} (\hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+void \hyperlink{sdl_fct_8c_a88953cb8d493b861488b6c1e6f8d7ceb}{reset\+Sprite} (\hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+int \hyperlink{sdl_fct_8c_a61bddae94d2141e39fd97427577a1168}{get\+Sprite\+From\+Timer} (\hyperlink{struct_sprite}{Sprite} $\ast$s, int default\+Timer, int timer)
+\item 
+void \hyperlink{sdl_fct_8c_ac51f7a70c0257e23b5cb4234643f7f04}{free\+Sprite} (\hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+int \hyperlink{sdl_fct_8c_a2383fdfb7940e75194fba8d8373476d6}{get\+Sprite\+Nb} (const \hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+void \hyperlink{sdl_fct_8c_a4e1e06d80830f4258863ede0ff333bf6}{set\+Sprite\+Nb} (\hyperlink{struct_sprite}{Sprite} $\ast$s, int nb)
+\item 
+int \hyperlink{sdl_fct_8c_aef939a43679625bc1adb78f1fe3872ac}{get\+Sprite\+Actual} (const \hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+void \hyperlink{sdl_fct_8c_a6e9edd2f4895314d31cc6a9a2638e2b7}{set\+Sprite\+Actual} (\hyperlink{struct_sprite}{Sprite} $\ast$s, int actual)
+\item 
+int \hyperlink{sdl_fct_8c_a1eadee409c6a8d7f2e5ff8c9e91c2bef}{get\+Sprite\+Timer} (const \hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+int \hyperlink{sdl_fct_8c_ad4cd1914c00c2c7e934be256cbab8fe3}{get\+Sprite\+Default\+Timer} (const \hyperlink{struct_sprite}{Sprite} $\ast$s)
+\item 
+void \hyperlink{sdl_fct_8c_a220ee62b624696f10eb9cc33f9ca07dc}{set\+Sprite\+Timer} (\hyperlink{struct_sprite}{Sprite} $\ast$s, int timer, int default\+Timer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sdl_fct_8c_ad6fc02ca05992d4aa41da5ad3eeb8525}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!add\+Sprite@{add\+Sprite}}
+\index{add\+Sprite@{add\+Sprite}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{add\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s, }
+\item[{char $\ast$}]{path}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_ad6fc02ca05992d4aa41da5ad3eeb8525}
+\hypertarget{sdl_fct_8c_ac51f7a70c0257e23b5cb4234643f7f04}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!free\+Sprite@{free\+Sprite}}
+\index{free\+Sprite@{free\+Sprite}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{free\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void free\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_ac51f7a70c0257e23b5cb4234643f7f04}
+\hypertarget{sdl_fct_8c_aef939a43679625bc1adb78f1fe3872ac}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!get\+Sprite\+Actual@{get\+Sprite\+Actual}}
+\index{get\+Sprite\+Actual@{get\+Sprite\+Actual}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{get\+Sprite\+Actual}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sprite\+Actual (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_aef939a43679625bc1adb78f1fe3872ac}
+\hypertarget{sdl_fct_8c_ad4cd1914c00c2c7e934be256cbab8fe3}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!get\+Sprite\+Default\+Timer@{get\+Sprite\+Default\+Timer}}
+\index{get\+Sprite\+Default\+Timer@{get\+Sprite\+Default\+Timer}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{get\+Sprite\+Default\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sprite\+Default\+Timer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_ad4cd1914c00c2c7e934be256cbab8fe3}
+\hypertarget{sdl_fct_8c_a61bddae94d2141e39fd97427577a1168}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!get\+Sprite\+From\+Timer@{get\+Sprite\+From\+Timer}}
+\index{get\+Sprite\+From\+Timer@{get\+Sprite\+From\+Timer}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{get\+Sprite\+From\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sprite\+From\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s, }
+\item[{int}]{default\+Timer, }
+\item[{int}]{timer}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a61bddae94d2141e39fd97427577a1168}
+\hypertarget{sdl_fct_8c_a2383fdfb7940e75194fba8d8373476d6}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!get\+Sprite\+Nb@{get\+Sprite\+Nb}}
+\index{get\+Sprite\+Nb@{get\+Sprite\+Nb}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{get\+Sprite\+Nb}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sprite\+Nb (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a2383fdfb7940e75194fba8d8373476d6}
+\hypertarget{sdl_fct_8c_a1eadee409c6a8d7f2e5ff8c9e91c2bef}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!get\+Sprite\+Timer@{get\+Sprite\+Timer}}
+\index{get\+Sprite\+Timer@{get\+Sprite\+Timer}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{get\+Sprite\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sprite\+Timer (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a1eadee409c6a8d7f2e5ff8c9e91c2bef}
+\hypertarget{sdl_fct_8c_a50f915329d1e46d41cb080d397a3226f}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!new\+Sprite@{new\+Sprite}}
+\index{new\+Sprite@{new\+Sprite}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{new\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sprite}$\ast$ new\+Sprite (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a50f915329d1e46d41cb080d397a3226f}
+\hypertarget{sdl_fct_8c_a88953cb8d493b861488b6c1e6f8d7ceb}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!reset\+Sprite@{reset\+Sprite}}
+\index{reset\+Sprite@{reset\+Sprite}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{reset\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void reset\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a88953cb8d493b861488b6c1e6f8d7ceb}
+\hypertarget{sdl_fct_8c_a2cefe965d3bc1790adde1b62c4041fa1}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!sdl\+Apply\+Surface@{sdl\+Apply\+Surface}}
+\index{sdl\+Apply\+Surface@{sdl\+Apply\+Surface}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{sdl\+Apply\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Apply\+Surface (
+\begin{DoxyParamCaption}
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{source, }
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{destination, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a2cefe965d3bc1790adde1b62c4041fa1}
+
+
+Applique une surface sur une autre avec une position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & S\+D\+L\+\_\+\+Surface source \\
+\hline
+{\em destination} & S\+D\+L\+\_\+\+Surface destination \\
+\hline
+{\em x} & position en X \\
+\hline
+{\em y} & position en y \\
+\hline
+\end{DoxyParams}
+\hypertarget{sdl_fct_8c_ad6370eb6fe0d2c3fc0ceb146cd9f34dc}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!sdl\+Load\+Image@{sdl\+Load\+Image}}
+\index{sdl\+Load\+Image@{sdl\+Load\+Image}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{sdl\+Load\+Image}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Surface$\ast$ sdl\+Load\+Image (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{filename}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_ad6370eb6fe0d2c3fc0ceb146cd9f34dc}
+
+
+Charge une image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & chemin d\textquotesingle{}acces à l\textquotesingle{}image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}image en S\+D\+L\+\_\+\+Surface 
+\end{DoxyReturn}
+\hypertarget{sdl_fct_8c_a6e9edd2f4895314d31cc6a9a2638e2b7}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!set\+Sprite\+Actual@{set\+Sprite\+Actual}}
+\index{set\+Sprite\+Actual@{set\+Sprite\+Actual}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{set\+Sprite\+Actual}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sprite\+Actual (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s, }
+\item[{int}]{actual}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a6e9edd2f4895314d31cc6a9a2638e2b7}
+\hypertarget{sdl_fct_8c_a4e1e06d80830f4258863ede0ff333bf6}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!set\+Sprite\+Nb@{set\+Sprite\+Nb}}
+\index{set\+Sprite\+Nb@{set\+Sprite\+Nb}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{set\+Sprite\+Nb}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sprite\+Nb (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s, }
+\item[{int}]{nb}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a4e1e06d80830f4258863ede0ff333bf6}
+\hypertarget{sdl_fct_8c_a220ee62b624696f10eb9cc33f9ca07dc}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!set\+Sprite\+Timer@{set\+Sprite\+Timer}}
+\index{set\+Sprite\+Timer@{set\+Sprite\+Timer}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{set\+Sprite\+Timer}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sprite\+Timer (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s, }
+\item[{int}]{timer, }
+\item[{int}]{default\+Timer}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a220ee62b624696f10eb9cc33f9ca07dc}
+\hypertarget{sdl_fct_8c_ae626c891f4c3d1ac12373ca0bc039b3a}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!text\+To\+Surface@{text\+To\+Surface}}
+\index{text\+To\+Surface@{text\+To\+Surface}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{text\+To\+Surface}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Surface$\ast$ text\+To\+Surface (
+\begin{DoxyParamCaption}
+\item[{char}]{txt\mbox{[}255\mbox{]}, }
+\item[{S\+D\+L\+\_\+\+Color}]{color, }
+\item[{T\+T\+F\+\_\+\+Font $\ast$}]{police}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_ae626c891f4c3d1ac12373ca0bc039b3a}
+
+
+Convertie un tableau de char en S\+D\+L\+\_\+\+Surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em txt} & chaine de char \\
+\hline
+{\em color} & Couleur du texte \\
+\hline
+{\em police} & Police du texte \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le texte en S\+D\+L\+\_\+\+Surface 
+\end{DoxyReturn}
+\hypertarget{sdl_fct_8c_a7a8e0537218a4135caa1de61a1f0e12a}{}\index{sdl\+Fct.\+c@{sdl\+Fct.\+c}!update\+Sprite@{update\+Sprite}}
+\index{update\+Sprite@{update\+Sprite}!sdl\+Fct.\+c@{sdl\+Fct.\+c}}
+\subsubsection[{update\+Sprite}]{\setlength{\rightskip}{0pt plus 5cm}void update\+Sprite (
+\begin{DoxyParamCaption}
+\item[{{\bf Sprite} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\label{sdl_fct_8c_a7a8e0537218a4135caa1de61a1f0e12a}

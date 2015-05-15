@@ -1,0 +1,375 @@
+\hypertarget{game_s_d_l_8h}{}\section{src/game\+S\+D\+L.h File Reference}
+\label{game_s_d_l_8h}\index{src/game\+S\+D\+L.\+h@{src/game\+S\+D\+L.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}map.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}interface.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sdl\+Fct.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}menu.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsdl_map}{sdl\+Map}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_s_d_l_8h_a2ddc0e5fe44b90524d93daef3a4b92ce}{sdl\+Map\+Init} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Initialise une \hyperlink{structsdl_map}{sdl\+Map}. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_aa75c6c5cbacdf1d39b9e9c845b235ba9}{sdl\+Map\+Aff} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Affiche une \hyperlink{structsdl_map}{sdl\+Map}. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a30fb203e8759e745599ca686099f0798}{sdl\+Terrain\+Aff} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Affiche le terrain. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a27ef6e4dc0008d789a384f6d0c5211e2}{sdl\+Enemy\+Aff} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Affiche les ennemies. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_afbc2dbad3cde9e0b4ed8a8fb9861da44}{sdl\+Tower\+Aff} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Affiche les tours. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a1cb4e7e12522db9408721529dc6c7cc1}{sdl\+Interface\+Aff} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Affiche l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a4e64b3355fed7734476a3dc18b2fd54c}{sdl\+Map\+Boucle} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Boucle d\textquotesingle{}evenement de la \hyperlink{structsdl_map}{sdl\+Map}. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a7c452ac727bca5e8ab819ce3ced6f51e}{sdl\+Map\+Libere} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Libere la \hyperlink{structsdl_map}{sdl\+Map}. \end{DoxyCompactList}\item 
+int \hyperlink{game_s_d_l_8h_aeed736a22893ab49aaf77d69de9e02de}{get\+Sdl\+Map\+Mode} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Renvoie le mode de jeu. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a66b717f5a7b5ad2cea83f966f08dbf91}{set\+Sdl\+Map\+Mode} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map, int mode)
+\begin{DoxyCompactList}\small\item\em Modifie le mode de jeu. \end{DoxyCompactList}\item 
+int \hyperlink{game_s_d_l_8h_ac00780af97eebb0a00ff6a58ea665f66}{get\+Sdl\+Map\+Speed} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Renvoie la vitesse de fonctionnement du jeu. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a8a958a60bb269887156c791e04442d79}{set\+Sdl\+Map\+Speed} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map, int speed)
+\begin{DoxyCompactList}\small\item\em Modifie la vitesse de fonctionnement du jeu. \end{DoxyCompactList}\item 
+\hyperlink{map_8h_af9824e0a3cac785d07b43c5265fddd5a}{Map} $\ast$ \hyperlink{game_s_d_l_8h_a59a66a6a2fe0377eb0ce24fee1b70b33}{get\+Sdl\+Map} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Renvoie la carte actuelle. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a36d1b5f7cf0398c9567963397815aeac}{set\+Sdl\+Map} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map, \hyperlink{map_8h_af9824e0a3cac785d07b43c5265fddd5a}{Map} $\ast$map)
+\begin{DoxyCompactList}\small\item\em Modifie la carte actuelle. \end{DoxyCompactList}\item 
+\hyperlink{interface_8h_a2bc6028823fa0c49a7d38abca6364e6f}{Interface} $\ast$ \hyperlink{game_s_d_l_8h_aab0f5861ff503f8c30c7488eaca07d3a}{get\+Sdl\+Map\+Interface} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}interface de jeu. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a0a905581715211340674b3b73fb1cbf2}{set\+Sdl\+Map\+Interface} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map, \hyperlink{interface_8h_a2bc6028823fa0c49a7d38abca6364e6f}{Interface} $\ast$i)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}interface de jeu. \end{DoxyCompactList}\item 
+S\+D\+L\+\_\+\+Surface $\ast$ \hyperlink{game_s_d_l_8h_a6f7e325f834f9e8a497e093523529dc4}{get\+Sdl\+Map\+Ecran} (const \hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map)
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\item 
+void \hyperlink{game_s_d_l_8h_a92e62e1e349bf4e747c5c8ede953c1a2}{set\+Sdl\+Map\+Ecran} (\hyperlink{structsdl_map}{sdl\+Map} $\ast$sd\+Map, S\+D\+L\+\_\+\+Surface $\ast$ecran)
+\begin{DoxyCompactList}\small\item\em Modifie l\textquotesingle{}écran du jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{game_s_d_l_8h_a59a66a6a2fe0377eb0ce24fee1b70b33}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!get\+Sdl\+Map@{get\+Sdl\+Map}}
+\index{get\+Sdl\+Map@{get\+Sdl\+Map}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{get\+Sdl\+Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}$\ast$ get\+Sdl\+Map (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a59a66a6a2fe0377eb0ce24fee1b70b33}
+
+
+Renvoie la carte actuelle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la carte actuelle 
+\end{DoxyReturn}
+\hypertarget{game_s_d_l_8h_a6f7e325f834f9e8a497e093523529dc4}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!get\+Sdl\+Map\+Ecran@{get\+Sdl\+Map\+Ecran}}
+\index{get\+Sdl\+Map\+Ecran@{get\+Sdl\+Map\+Ecran}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{get\+Sdl\+Map\+Ecran}]{\setlength{\rightskip}{0pt plus 5cm}S\+D\+L\+\_\+\+Surface$\ast$ get\+Sdl\+Map\+Ecran (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a6f7e325f834f9e8a497e093523529dc4}
+
+
+Renvoie l\textquotesingle{}écran du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne l\textquotesingle{}écran du jeu 
+\end{DoxyReturn}
+\hypertarget{game_s_d_l_8h_aab0f5861ff503f8c30c7488eaca07d3a}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!get\+Sdl\+Map\+Interface@{get\+Sdl\+Map\+Interface}}
+\index{get\+Sdl\+Map\+Interface@{get\+Sdl\+Map\+Interface}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{get\+Sdl\+Map\+Interface}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Interface}$\ast$ get\+Sdl\+Map\+Interface (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_aab0f5861ff503f8c30c7488eaca07d3a}
+
+
+Renvoie l\textquotesingle{}interface de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne l\textquotesingle{}interface de jeu 
+\end{DoxyReturn}
+\hypertarget{game_s_d_l_8h_aeed736a22893ab49aaf77d69de9e02de}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!get\+Sdl\+Map\+Mode@{get\+Sdl\+Map\+Mode}}
+\index{get\+Sdl\+Map\+Mode@{get\+Sdl\+Map\+Mode}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{get\+Sdl\+Map\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sdl\+Map\+Mode (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_aeed736a22893ab49aaf77d69de9e02de}
+
+
+Renvoie le mode de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne le mode de jeu 
+\end{DoxyReturn}
+\hypertarget{game_s_d_l_8h_ac00780af97eebb0a00ff6a58ea665f66}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!get\+Sdl\+Map\+Speed@{get\+Sdl\+Map\+Speed}}
+\index{get\+Sdl\+Map\+Speed@{get\+Sdl\+Map\+Speed}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{get\+Sdl\+Map\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}int get\+Sdl\+Map\+Speed (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_ac00780af97eebb0a00ff6a58ea665f66}
+
+
+Renvoie la vitesse de fonctionnement du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retourne la vitesse de fonctionnement du jeu 
+\end{DoxyReturn}
+\hypertarget{game_s_d_l_8h_a27ef6e4dc0008d789a384f6d0c5211e2}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Enemy\+Aff@{sdl\+Enemy\+Aff}}
+\index{sdl\+Enemy\+Aff@{sdl\+Enemy\+Aff}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Enemy\+Aff}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Enemy\+Aff (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a27ef6e4dc0008d789a384f6d0c5211e2}
+
+
+Affiche les ennemies. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a1cb4e7e12522db9408721529dc6c7cc1}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Interface\+Aff@{sdl\+Interface\+Aff}}
+\index{sdl\+Interface\+Aff@{sdl\+Interface\+Aff}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Interface\+Aff}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Interface\+Aff (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a1cb4e7e12522db9408721529dc6c7cc1}
+
+
+Affiche l\textquotesingle{}interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_aa75c6c5cbacdf1d39b9e9c845b235ba9}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Map\+Aff@{sdl\+Map\+Aff}}
+\index{sdl\+Map\+Aff@{sdl\+Map\+Aff}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Map\+Aff}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Map\+Aff (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_aa75c6c5cbacdf1d39b9e9c845b235ba9}
+
+
+Affiche une \hyperlink{structsdl_map}{sdl\+Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a4e64b3355fed7734476a3dc18b2fd54c}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Map\+Boucle@{sdl\+Map\+Boucle}}
+\index{sdl\+Map\+Boucle@{sdl\+Map\+Boucle}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Map\+Boucle}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Map\+Boucle (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a4e64b3355fed7734476a3dc18b2fd54c}
+
+
+Boucle d\textquotesingle{}evenement de la \hyperlink{structsdl_map}{sdl\+Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a2ddc0e5fe44b90524d93daef3a4b92ce}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Map\+Init@{sdl\+Map\+Init}}
+\index{sdl\+Map\+Init@{sdl\+Map\+Init}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Map\+Init}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Map\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a2ddc0e5fe44b90524d93daef3a4b92ce}
+
+
+Initialise une \hyperlink{structsdl_map}{sdl\+Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a7c452ac727bca5e8ab819ce3ced6f51e}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Map\+Libere@{sdl\+Map\+Libere}}
+\index{sdl\+Map\+Libere@{sdl\+Map\+Libere}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Map\+Libere}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Map\+Libere (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a7c452ac727bca5e8ab819ce3ced6f51e}
+
+
+Libere la \hyperlink{structsdl_map}{sdl\+Map}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a30fb203e8759e745599ca686099f0798}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Terrain\+Aff@{sdl\+Terrain\+Aff}}
+\index{sdl\+Terrain\+Aff@{sdl\+Terrain\+Aff}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Terrain\+Aff}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Terrain\+Aff (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a30fb203e8759e745599ca686099f0798}
+
+
+Affiche le terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_afbc2dbad3cde9e0b4ed8a8fb9861da44}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!sdl\+Tower\+Aff@{sdl\+Tower\+Aff}}
+\index{sdl\+Tower\+Aff@{sdl\+Tower\+Aff}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{sdl\+Tower\+Aff}]{\setlength{\rightskip}{0pt plus 5cm}void sdl\+Tower\+Aff (
+\begin{DoxyParamCaption}
+\item[{const {\bf sdl\+Map} $\ast$}]{sd\+Map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_afbc2dbad3cde9e0b4ed8a8fb9861da44}
+
+
+Affiche les tours. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a36d1b5f7cf0398c9567963397815aeac}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!set\+Sdl\+Map@{set\+Sdl\+Map}}
+\index{set\+Sdl\+Map@{set\+Sdl\+Map}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{set\+Sdl\+Map}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sdl\+Map (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map, }
+\item[{{\bf Map} $\ast$}]{map}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a36d1b5f7cf0398c9567963397815aeac}
+
+
+Modifie la carte actuelle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+{\em map} & Pointeur sur Map \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a92e62e1e349bf4e747c5c8ede953c1a2}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!set\+Sdl\+Map\+Ecran@{set\+Sdl\+Map\+Ecran}}
+\index{set\+Sdl\+Map\+Ecran@{set\+Sdl\+Map\+Ecran}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{set\+Sdl\+Map\+Ecran}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sdl\+Map\+Ecran (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map, }
+\item[{S\+D\+L\+\_\+\+Surface $\ast$}]{ecran}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a92e62e1e349bf4e747c5c8ede953c1a2}
+
+
+Modifie l\textquotesingle{}écran du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+{\em i} & Pointeur sur Interface \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a0a905581715211340674b3b73fb1cbf2}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!set\+Sdl\+Map\+Interface@{set\+Sdl\+Map\+Interface}}
+\index{set\+Sdl\+Map\+Interface@{set\+Sdl\+Map\+Interface}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{set\+Sdl\+Map\+Interface}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sdl\+Map\+Interface (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map, }
+\item[{{\bf Interface} $\ast$}]{i}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a0a905581715211340674b3b73fb1cbf2}
+
+
+Modifie l\textquotesingle{}interface de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+{\em i} & Pointeur sur Interface \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a66b717f5a7b5ad2cea83f966f08dbf91}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!set\+Sdl\+Map\+Mode@{set\+Sdl\+Map\+Mode}}
+\index{set\+Sdl\+Map\+Mode@{set\+Sdl\+Map\+Mode}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{set\+Sdl\+Map\+Mode}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sdl\+Map\+Mode (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a66b717f5a7b5ad2cea83f966f08dbf91}
+
+
+Modifie le mode de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+{\em mode} & entier indiquant le mode de jeu \\
+\hline
+\end{DoxyParams}
+\hypertarget{game_s_d_l_8h_a8a958a60bb269887156c791e04442d79}{}\index{game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}!set\+Sdl\+Map\+Speed@{set\+Sdl\+Map\+Speed}}
+\index{set\+Sdl\+Map\+Speed@{set\+Sdl\+Map\+Speed}!game\+S\+D\+L.\+h@{game\+S\+D\+L.\+h}}
+\subsubsection[{set\+Sdl\+Map\+Speed}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Sdl\+Map\+Speed (
+\begin{DoxyParamCaption}
+\item[{{\bf sdl\+Map} $\ast$}]{sd\+Map, }
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)}\label{game_s_d_l_8h_a8a958a60bb269887156c791e04442d79}
+
+
+Modifie la vitesse de fonctionnement du jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd\+Map} & Pointeur sur \hyperlink{structsdl_map}{sdl\+Map} \\
+\hline
+{\em speed} & entier indiquant la vitesse de fonctionnement du jeu \\
+\hline
+\end{DoxyParams}

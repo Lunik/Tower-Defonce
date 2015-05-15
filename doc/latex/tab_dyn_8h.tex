@@ -1,0 +1,272 @@
+\hypertarget{tab_dyn_8h}{\section{src/tab\+Dyn.h File Reference}
+\label{tab_dyn_8h}\index{src/tab\+Dyn.\+h@{src/tab\+Dyn.\+h}}
+}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structs_tab_dyn}{s\+Tab\+Dyn}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D}
+\item 
+typedef struct \hyperlink{structs_tab_dyn}{s\+Tab\+Dyn} \hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{tab_dyn_8h_ab93f6b3dafc2f749df8cbb4ee12b41a8}{init\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Initialise un tableau dynamique. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a7c461cd8ea7e47ec196b4cecf00dd8f2}{testament\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t)
+\begin{DoxyCompactList}\small\item\em free du Tab\+Dyn \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a8c137e8ac65b568592b2b210bda4c693}{affect\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t1, const \hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t2)
+\begin{DoxyCompactList}\small\item\em Affecte le un tableau a un autre tableau. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{tab_dyn_8h_a9e6c25e435c905758bef2fd075756097}{used\+Tab\+Dyn} (const \hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Nombre de case utilises. \end{DoxyCompactList}\item 
+\hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D} \hyperlink{tab_dyn_8h_aff21a2b783167e10898d643be482c1ec}{I\+Value\+Tab\+Dyn} (const \hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, unsigned int i)
+\begin{DoxyCompactList}\small\item\em Recupere la valeur de la case i du tableau. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a3d182486c0548c9cd4e8f67e4460e1e2}{add\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, \hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D} e)
+\begin{DoxyCompactList}\small\item\em Ajoute un element au tableau. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a267936a058dfd4ec016edf3030024c64}{remove\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, unsigned int position)
+\begin{DoxyCompactList}\small\item\em Supprime un element du tableau selon sa position. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a6508e87ef5782c3ff1535863e9edf5f6}{change\+I\+Value\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, \hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D} e, unsigned int i)
+\begin{DoxyCompactList}\small\item\em Change la valeur d'un element du tableau en position i. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a99eb4fc7b238ff2a8e251c2fb55d5546}{insert\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, \hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D} e, unsigned int i)
+\begin{DoxyCompactList}\small\item\em Insert un element dans le tableau en position i. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_af19b2bceb97897361b633f43a45ab9a1}{sort\+Tab\+Dyn} (\hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Trie le tableau. \end{DoxyCompactList}\item 
+int \hyperlink{tab_dyn_8h_a8a72bf3e2968e05015011ba2ec0563bc}{search\+Tab\+Dyn} (const \hyperlink{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{Tab\+Dyn} $\ast$t, \hyperlink{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{Element\+T\+D} e)
+\begin{DoxyCompactList}\small\item\em Recherche un element dans le tableau. \end{DoxyCompactList}\item 
+void \hyperlink{tab_dyn_8h_a12d469e5d2fc91edf5b453be05ee268f}{regression\+Tab\+Dyn} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!Element\+T\+D@{Element\+T\+D}}
+\index{Element\+T\+D@{Element\+T\+D}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{Element\+T\+D}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf Element\+T\+D}}}\label{tab_dyn_8h_a59d589d656b213d6d463a788c88fe32a}
+\hypertarget{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!Tab\+Dyn@{Tab\+Dyn}}
+\index{Tab\+Dyn@{Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf s\+Tab\+Dyn} {\bf Tab\+Dyn}}}\label{tab_dyn_8h_a7ca6659e63e333ce43e6754a01af2461}
+
+
+\subsection{Function Documentation}
+\hypertarget{tab_dyn_8h_a3d182486c0548c9cd4e8f67e4460e1e2}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!add\+Tab\+Dyn@{add\+Tab\+Dyn}}
+\index{add\+Tab\+Dyn@{add\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{add\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void add\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{{\bf Element\+T\+D}}]{e}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a3d182486c0548c9cd4e8f67e4460e1e2}
+
+
+Ajoute un element au tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em e} & Element à mettre dans le tableau \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a8c137e8ac65b568592b2b210bda4c693}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!affect\+Tab\+Dyn@{affect\+Tab\+Dyn}}
+\index{affect\+Tab\+Dyn@{affect\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{affect\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void affect\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t1, }
+\item[{const {\bf Tab\+Dyn} $\ast$}]{t2}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a8c137e8ac65b568592b2b210bda4c693}
+
+
+Affecte le un tableau a un autre tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t1} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em t2} & Pointeur sur Tab\+Dyn \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a6508e87ef5782c3ff1535863e9edf5f6}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!change\+I\+Value\+Tab\+Dyn@{change\+I\+Value\+Tab\+Dyn}}
+\index{change\+I\+Value\+Tab\+Dyn@{change\+I\+Value\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{change\+I\+Value\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void change\+I\+Value\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{{\bf Element\+T\+D}}]{e, }
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a6508e87ef5782c3ff1535863e9edf5f6}
+
+
+Change la valeur d'un element du tableau en position i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em e} & Element à modifier \\
+\hline
+{\em i} & Position à modifier \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_ab93f6b3dafc2f749df8cbb4ee12b41a8}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!init\+Tab\+Dyn@{init\+Tab\+Dyn}}
+\index{init\+Tab\+Dyn@{init\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{init\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void init\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_ab93f6b3dafc2f749df8cbb4ee12b41a8}
+
+
+Initialise un tableau dynamique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a99eb4fc7b238ff2a8e251c2fb55d5546}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!insert\+Tab\+Dyn@{insert\+Tab\+Dyn}}
+\index{insert\+Tab\+Dyn@{insert\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{insert\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void insert\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{{\bf Element\+T\+D}}]{e, }
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a99eb4fc7b238ff2a8e251c2fb55d5546}
+
+
+Insert un element dans le tableau en position i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em e} & Element à ajouter \\
+\hline
+{\em i} & Position de l'ajout \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_aff21a2b783167e10898d643be482c1ec}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!I\+Value\+Tab\+Dyn@{I\+Value\+Tab\+Dyn}}
+\index{I\+Value\+Tab\+Dyn@{I\+Value\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{I\+Value\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Element\+T\+D} I\+Value\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_aff21a2b783167e10898d643be482c1ec}
+
+
+Recupere la valeur de la case i du tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em i} & Numero de case \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Element du Tableau 
+\end{DoxyReturn}
+\hypertarget{tab_dyn_8h_a12d469e5d2fc91edf5b453be05ee268f}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!regression\+Tab\+Dyn@{regression\+Tab\+Dyn}}
+\index{regression\+Tab\+Dyn@{regression\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{regression\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void regression\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a12d469e5d2fc91edf5b453be05ee268f}
+\hypertarget{tab_dyn_8h_a267936a058dfd4ec016edf3030024c64}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!remove\+Tab\+Dyn@{remove\+Tab\+Dyn}}
+\index{remove\+Tab\+Dyn@{remove\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{remove\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{unsigned int}]{position}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a267936a058dfd4ec016edf3030024c64}
+
+
+Supprime un element du tableau selon sa position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em position} & Position de la case \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a8a72bf3e2968e05015011ba2ec0563bc}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!search\+Tab\+Dyn@{search\+Tab\+Dyn}}
+\index{search\+Tab\+Dyn@{search\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{search\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}int search\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tab\+Dyn} $\ast$}]{t, }
+\item[{{\bf Element\+T\+D}}]{e}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a8a72bf3e2968e05015011ba2ec0563bc}
+
+
+Recherche un element dans le tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+{\em e} & Element à rechercher \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_af19b2bceb97897361b633f43a45ab9a1}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!sort\+Tab\+Dyn@{sort\+Tab\+Dyn}}
+\index{sort\+Tab\+Dyn@{sort\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{sort\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void sort\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_af19b2bceb97897361b633f43a45ab9a1}
+
+
+Trie le tableau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a7c461cd8ea7e47ec196b4cecf00dd8f2}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!testament\+Tab\+Dyn@{testament\+Tab\+Dyn}}
+\index{testament\+Tab\+Dyn@{testament\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{testament\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}void testament\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{{\bf Tab\+Dyn} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a7c461cd8ea7e47ec196b4cecf00dd8f2}
+
+
+free du Tab\+Dyn 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+\end{DoxyParams}
+\hypertarget{tab_dyn_8h_a9e6c25e435c905758bef2fd075756097}{\index{tab\+Dyn.\+h@{tab\+Dyn.\+h}!used\+Tab\+Dyn@{used\+Tab\+Dyn}}
+\index{used\+Tab\+Dyn@{used\+Tab\+Dyn}!tab\+Dyn.\+h@{tab\+Dyn.\+h}}
+\subsubsection[{used\+Tab\+Dyn}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int used\+Tab\+Dyn (
+\begin{DoxyParamCaption}
+\item[{const {\bf Tab\+Dyn} $\ast$}]{t}
+\end{DoxyParamCaption}
+)}}\label{tab_dyn_8h_a9e6c25e435c905758bef2fd075756097}
+
+
+Nombre de case utilises. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Pointeur sur Tab\+Dyn \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Nombre de case 
+\end{DoxyReturn}
