@@ -8,7 +8,7 @@ void sdlMapInit(sdlMap *sdMap)
 	Interface *interface;
 	int dimx, dimy;
 
-	map = newMap(15, 15);
+	map = newMap(15, 15, 1);
 	setSdlMap(sdMap,map);
 
 	interface = newInterface();
@@ -41,9 +41,11 @@ void sdlMapInit(sdlMap *sdMap)
 
 	sdMap->Grotte = newSprite();
 	addSprite(sdMap->Grotte, "data/map/grotte.png");
+	addSprite(sdMap->Grotte, "data/map/grotte2.png");
 
-	sdMap->Castle = newSprite();
-	addSprite(sdMap->Castle, "data/map/chateau.png");
+	sdMap->Ville = newSprite();
+	addSprite(sdMap->Ville, "data/map/ville.png");
+	addSprite(sdMap->Ville, "data/map/ville2.png");
 
 	sdMap->Life = newSprite();
 	addSprite(sdMap->Life, "data/enemies/life/0.png");
@@ -143,21 +145,9 @@ void sdlTerrainAff(const sdlMap *sdMap)
 	Map *map = getSdlMap(sdMap);
 	Coord dim = getMapDim(map);
 	//affichage terrain
-	if (sdMap->infinityMode)
+	if (getSdlMapMode(sdMap))
 	{
 		sdlApplySurface(sdMap->Terrain->sprites[1], getSdlMapEcran(sdMap), -1, -1);
-		
-		//Affichage du mode
-		SDL_Color colorWhite = {255, 255, 255};
-		SDL_Surface *surface;
-		surface = textToSurface("INFINITY MODE", colorWhite, sdMap->policeMax);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), 1, 15.5);
-		SDL_FreeSurface(surface);
-		
-		for(i=0; i<13; i++){
-			updateSprite(sdMap->TowerAura);
-			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), i, 17);
-		}
 		
 	} else {
 		sdlApplySurface(sdMap->Terrain->sprites[0], getSdlMapEcran(sdMap), -1, -1);
@@ -176,12 +166,38 @@ void sdlTerrainAff(const sdlMap *sdMap)
 	}
 
 	Coord end = getMapEnd(map);
-	//Affichage chateau
-	sdlApplySurface(sdMap->Castle->sprites[0], getSdlMapEcran(sdMap), end.y, (end.x-1));
-
 	Coord start = getMapStart(map);
+	//Affichage chateau
 	//affichage arrive des monstres
-	sdlApplySurface(sdMap->Grotte->sprites[0], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
+	if(map->numero == 4){
+		sdlApplySurface(sdMap->Grotte->sprites[0], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
+		sdlApplySurface(sdMap->Ville->sprites[0], getSdlMapEcran(sdMap), end.y, (end.x-6.7));
+	} else if(map->numero == 3){
+		sdlApplySurface(sdMap->Grotte->sprites[1], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
+		sdlApplySurface(sdMap->Ville->sprites[1], getSdlMapEcran(sdMap), (end.y-8), end.x);
+	} else if(map->numero == 2){
+		sdlApplySurface(sdMap->Grotte->sprites[0], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
+		sdlApplySurface(sdMap->Ville->sprites[1], getSdlMapEcran(sdMap), (end.y-8), end.x);
+	} else if(map->numero == 1){
+		sdlApplySurface(sdMap->Grotte->sprites[1], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
+		sdlApplySurface(sdMap->Ville->sprites[0], getSdlMapEcran(sdMap), end.y, (end.x-6.7));
+	}
+
+
+	if(getSdlMapMode(sdMap)){
+		//Affichage du mode
+		SDL_Color colorWhite = {255, 255, 255};
+		SDL_Surface *surface;
+		surface = textToSurface("INFINITY MODE", colorWhite, sdMap->policeMax);
+		sdlApplySurface(surface, getSdlMapEcran(sdMap), 1, 15.5);
+		SDL_FreeSurface(surface);
+		
+		for(i=0; i<13; i++){
+			updateSprite(sdMap->TowerAura);
+			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), i, 17);
+		}
+	}	
+	
 }
 
 void sdlEnemyAff(const sdlMap *sdMap)
@@ -253,7 +269,7 @@ void sdlTowerAff(const sdlMap *sdMap)
 		}
 
 		Projectile *p = getTowerProjectile(t);
-		pos = getTowerPosition(t);
+		pos = getProjectilePosition(p);
 		px = pos->x;
 		py = pos->y;
 		
@@ -437,7 +453,7 @@ void sdlMapBoucle(sdlMap *sdMap)
 {
 	int continuGame = 1;
 	int resultMenu;
-	int i;
+	int i, num;
 	char c;
 	Menu menu;
 	sdlMenuInit(&menu, getSdlMapEcran(sdMap));
@@ -471,7 +487,12 @@ void sdlMapBoucle(sdlMap *sdMap)
 			resultMenu = 1;
 			break;
 		case 2:
-			setSdlMap(sdMap,newMap(15, 15));
+			num = getMapNum(getSdlMap(sdMap));
+			num++;
+			if(num > 4)
+				num = 1;
+			setMapNum(getSdlMap(sdMap), num);
+			setSdlMap(sdMap,newMap(15, 15, num));
 			setSdlMapMode(sdMap, 0);
 			setSdlMapSpeed(sdMap, 0);
 			continuGame = 1;
@@ -637,7 +658,7 @@ void sdlMapLibere(sdlMap *sdMap)
 
 	freeSprite(sdMap->Terrain);
 	freeSprite(sdMap->Path);
-	freeSprite(sdMap->Castle);
+	freeSprite(sdMap->Ville);
 	freeSprite(sdMap->Grotte);
 
 	SDL_FreeSurface(getSdlMapEcran(sdMap));

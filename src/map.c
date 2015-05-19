@@ -6,14 +6,15 @@
 #include "map.h"
 
 
-Map *newMap(int dimX, int dimY)
+Map *newMap(int dimX, int dimY, int num)
 {
 	Map *m;
 	m = malloc(sizeof(Map));
 	setMapTowers(m, newEnsTower());
 	setMapEnemys(m,newEnsEnemy());
 	setMapDim(m,dimX, dimY);
-	initMap(m);
+	setMapNum(m,num);
+	initMap(m,num);
 	setMapWave(m,0);
 	setMapLife(m,1000);
 	setMapGold(m,1000);
@@ -30,29 +31,113 @@ Cell *newMapCell(int build,int path)
 	return c;
 }
 
-void initMap(Map *map)
+void initMap(Map *map, int num)
 {
 	int i,j,pathcount;
 	setMapDim(map,15, 15);
 	Coord dim = getMapDim(map);
 	pathcount = 1;
-	const char MAP_PATTERN[15][15] = {
-		"#######=====###",
-		"#######=###=###",
-		"#######=###=###",
-		"B=#=====###=###",
-		"#=#=#######=###",
-		"#=#==#####==###",
-		"#=##=####==####",
-		"#====####=#####",
-		"#########=#####",
-		"####======#####",
-		"###==######===E",
-		"##==####====###",
-		"##=#####=######",
-		"##==###==######",
-		"###=====#######"
-	};
+	
+	const char MAP_PATTERN1[15][15] = {
+			"#############B#",
+			"==============#",
+			"=##############",
+			"=#============#",
+			"=#=##########=#",
+			"=#=#========#=#",
+			"=#=#=######=#=#",
+			"=#=#=##===#=#=#",
+			"=#=#=##=#=#=#=#",
+			"=#=#=##=#=#=#=#",
+			"=#=#====#=#=#=#",
+			"=#=######=#=#=#",
+			"=#========#=#=#",
+			"=##########=#=E",
+			"============###",
+			};
+	const char MAP_PATTERN2[15][15] = {
+			"###############",
+			"#=============#",
+			"#=###########=#",
+			"#=###=======#=#",
+			"#=###=#####===#",
+			"#=###=#########",
+			"#=###========##",
+			"#=##########=##",
+			"#=======####=##",
+			"#######=####=##",
+			"###===#=####=##",
+			"###=#=#=####=##",
+			"B===#=#=####=##",
+			"#####===####=##",
+			"############E##",
+			};
+	const char MAP_PATTERN3[15][15] = {
+			"#######B#######",
+			"#######======##",
+			"############=##",
+			"##===========##",
+			"##=############",
+			"##=###========#",
+			"##=###=######=#",
+			"##=###=######=#",
+			"##=###======#=#",
+			"##=########=#=#",
+			"##==========#=#",
+			"#############=#",
+			"#############=#",
+			"#####=========#",
+			"#####E#########",
+			};
+	const char MAP_PATTERN4[15][15] = {
+			"#######=====###",
+			"#######=###=###",
+			"#######=###=###",
+			"B=#=====###=###",
+			"#=#=#######=###",
+			"#=#==#####==###",
+			"#=##=####==####",
+			"#====####=#####",
+			"#########=#####",
+			"####======#####",
+			"###==######===E",
+			"##==####====###",
+			"##=#####=######",
+			"##==###==######",
+			"###=====#######"
+			};
+	char MAP_PATTERN[15][15];
+	switch(num){
+		case 1:
+			for (i=0; i<dim.x; i++) {
+				for (j=0; j<dim.y; j++) {
+					MAP_PATTERN[i][j] = MAP_PATTERN1[i][j];
+				}
+			}
+			break;
+		case 2:
+			for (i=0; i<dim.x; i++) {
+				for (j=0; j<dim.y; j++) {
+					MAP_PATTERN[i][j] = MAP_PATTERN2[i][j];
+				}
+			}
+			break;
+		case 3:
+			for (i=0; i<dim.x; i++) {
+				for (j=0; j<dim.y; j++) {
+					MAP_PATTERN[i][j] = MAP_PATTERN3[i][j];
+				}
+			}
+			break;
+		case 4:
+			for (i=0; i<dim.x; i++) {
+				for (j=0; j<dim.y; j++) {
+					MAP_PATTERN[i][j] = MAP_PATTERN4[i][j];
+				}
+			}
+			break;
+	}
+	
 	Coord *coord, *fin, *debut;
 	Cell *c;
 	fin = malloc(sizeof(Coord));
@@ -383,4 +468,12 @@ void setCellPosition(Cell *c, Coord *pos)
 Coord getCellPosition(const Cell *c)
 {
 	return c->position;
+}
+
+void setMapNum(Map *map, int num){
+	map->numero = num;
+}
+
+int getMapNum(const Map *map){
+	return map->numero;
 }

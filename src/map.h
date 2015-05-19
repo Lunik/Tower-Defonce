@@ -31,6 +31,7 @@ struct sMap{
 	int life;
 	int wave;
 	int gold;
+	int numero;
 };
 typedef struct sMap Map;
 
@@ -38,9 +39,10 @@ typedef struct sMap Map;
 * @brief Crée une map
 * @param dimX entier indiquant la dimention en X de la carte
 * @param dimY entier indiquant la dimention en Y de la carte
+* @param num Numereo de la map
 * @return Retourne un Pointeur sur Map
 */
-Map *newMap(int dimX, int dimY);
+Map *newMap(int dimX, int dimY, int num);
 
 /**
 * @brief Cree une cellule
@@ -52,9 +54,10 @@ Cell *newMapCell(int build,int path);
 
 /**
 * @brief Initialise une map
-* @param Pointeur sur Map
+* @param map Pointeur sur Map
+* @parma num Numero de la map
 */
-void initMap(Map *map);
+void initMap(Map *map, int num);
 
 /**
 * @brief Met à jour la structure map et appel les sous fonctions update
@@ -314,4 +317,16 @@ void setCellPosition(Cell *c, Coord *pos);
 */
 Coord getCellPosition(const Cell *c);
 
+/**
+* @brief Modifie le numero de map
+* @param map Pointeur sur Map
+* @param num numero de map
+*/
+void setMapNum(Map *map, int num);
+/**
+* @brief Renvoie le numereo de map
+* @param map Pointeur sur map
+* @return numero de map
+*/
+int getMapNum(const Map *map);
 #endif

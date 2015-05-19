@@ -5,16 +5,16 @@ void sdlMenuInit(Menu *menu,SDL_Surface *surfaceEcran)
 	menu->surfaceEcran = surfaceEcran;
 	menu->cursor = newCursor();
 	menu->cursor->position.x = 8;
-	menu->cursor->position.y = 5;
+	menu->cursor->position.y = 6;
 
 	menu->helpAff =0;
 
 	Coord c;
 	c.x = 8;
-	c.y = 11;
+	c.y = 12;
 	menu->cursor->max = c;
 	c.x = 8;
-	c.y = 5;
+	c.y = 6;
 	menu->cursor->min = c;
 
 	menu->police = TTF_OpenFont("data/font.ttf", 20);
@@ -31,6 +31,8 @@ void sdlMenuInit(Menu *menu,SDL_Surface *surfaceEcran)
 
 	menu->Button = newSprite();
 	addSprite(menu->Button, "data/menu/button/0.png");
+
+	menu->cinematique = 1;
 }
 
 void sdlMenuAff(Menu *menu)
@@ -42,35 +44,34 @@ void sdlMenuAff(Menu *menu)
 	// Remplir l'ecran de noir
 	SDL_FillRect(menu->surfaceEcran, &menu->surfaceEcran->clip_rect, SDL_MapRGB(menu->surfaceEcran->format, 0x00, 0x00, 0x00));
 
-	//Afficher le background
-	//sdlApplySurface(menu->surfaceBackground, menu->surfaceEcran, 1*TAILLE_MENU, 1*TAILLE_MENU);
-
-	//Afficher le titre
-	sdlApplySurface(menu->Title->sprites[0], menu->surfaceEcran, 5, 1);
-
 
 	if (!menu->helpAff)
 	{
+		//Afficher le background
+		sdlApplySurface(menu->Background->sprites[0], menu->surfaceEcran, -1, -1);
+		//Afficher le titre
+		sdlApplySurface(menu->Title->sprites[0], menu->surfaceEcran, 0, 1.5);
+
 		//Afficher les cases menu
 		//jouer
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8U, 5);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8U, 6);
 		sprintf(charBuffer, "Jouer");
-		sdlApplyText(menu->surfaceEcran, 10, 5.1, charBuffer, colorWhite, menu->police);
+		sdlApplyText(menu->surfaceEcran, 10, 6.1, charBuffer, colorWhite, menu->police);
 
 		//restart
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 7);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 8);
 		sprintf(charBuffer, "Recommencer");
-		sdlApplyText(menu->surfaceEcran, 9, 7.1, charBuffer, colorWhite, menu->police);
+		sdlApplyText(menu->surfaceEcran, 9, 8.1, charBuffer, colorWhite, menu->police);
 
 		//Aide
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 9);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 10);
 		sprintf(charBuffer, "Aide");
-		sdlApplyText(menu->surfaceEcran, 10.25, 9.1, charBuffer, colorWhite, menu->police);
+		sdlApplyText(menu->surfaceEcran, 10.25, 10.1, charBuffer, colorWhite, menu->police);
 
 		//quiter
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 11);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 12);
 		sprintf(charBuffer, "Quitter");
-		sdlApplyText(menu->surfaceEcran, 10, 11.1, charBuffer, colorWhite, menu->police);
+		sdlApplyText(menu->surfaceEcran, 10, 12.1, charBuffer, colorWhite, menu->police);
 
 		sdlApplySurface(menu->Cursor->sprites[0], menu->surfaceEcran, menu->cursor->position.x, menu->cursor->position.y);
 	} 
@@ -78,93 +79,68 @@ void sdlMenuAff(Menu *menu)
 	{
 		//Affiche l'aide
 		//titre
-		SDL_Surface *quitBut = textToSurface("Aide", colorWhite, menu->police);
-		sdlApplySurface(quitBut, menu->surfaceEcran, 9, 3);
-		SDL_FreeSurface(quitBut);
+		//Afficher le titre
+		sdlApplySurface(menu->Title->sprites[0], menu->surfaceEcran, 0, -1);
+		sprintf(charBuffer, "Aide");
+		sdlApplyText(menu->surfaceEcran, 12, 3, charBuffer, colorWhite, menu->police);
 
-		SDL_Surface *helpLine;
-		SDL_Surface *underHelpLine;
+		sprintf(charBuffer, "K: ");
+		sdlApplyText(menu->surfaceEcran, 1, 4, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Acheter un Chevalier");
+		sdlApplyText(menu->surfaceEcran, 2, 4, charBuffer, colorWhite, menu->police);
+		sprintf(charBuffer, "Rayon d'action: 1.2, Dommage: 150, Prix: 150, Tape les monstres au sol");
+		sdlApplyText(menu->surfaceEcran, 2, 5, charBuffer, colorWhite, menu->policeMin);
 
-		helpLine = textToSurface("K: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 4);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Acheter un Chevalier", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 4);
-		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 1.2, Dommage: 150, Prix: 150, Tape les monstres au sol", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 5);
-		SDL_FreeSurface(underHelpLine);
+		sprintf(charBuffer, "A: ");
+		sdlApplyText(menu->surfaceEcran, 1, 6, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Acheter un Archer");
+		sdlApplyText(menu->surfaceEcran, 2, 6, charBuffer, colorWhite, menu->police);
+		sprintf(charBuffer, "Rayon d'action: 3.6, Dommage: 80, Prix: 300, Tape les monstres au sol et volants");
+		sdlApplyText(menu->surfaceEcran, 2, 7, charBuffer, colorWhite, menu->policeMin);
 
-		helpLine = textToSurface("A: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 6);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Acheter un Archer", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 6);
-		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 3.6, Dommage: 80, Prix: 300, Tape les monstres au sol et volants", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 7);
-		SDL_FreeSurface(underHelpLine);
+		sprintf(charBuffer, "M: ");
+		sdlApplyText(menu->surfaceEcran, 1, 8, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Acheter un Mage");
+		sdlApplyText(menu->surfaceEcran, 2, 8, charBuffer, colorWhite, menu->police);
+		sprintf(charBuffer, "Rayon d'action: 2.1, Dommage: 100, Prix: 500, Tape les monstres au sol et volants, Inflige un ralentissement des enemies");
+		sdlApplyText(menu->surfaceEcran, 2, 9, charBuffer, colorWhite, menu->policeMin);
 
-		helpLine = textToSurface("M: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 8);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Acheter un Mage", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 8);
-		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 2.1, Dommage: 100, Prix: 500, Tape les monstres au sol et volants, Inflige un ralentissement des enemies", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 9);
-		SDL_FreeSurface(underHelpLine);
+		sprintf(charBuffer,"C: ");
+		sdlApplyText(menu->surfaceEcran, 1, 10, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Acheter un Canon");
+		sdlApplyText(menu->surfaceEcran, 2, 10, charBuffer, colorWhite, menu->police);
+		sprintf(charBuffer, "Rayon d'action: 2, Dommage: 500, Prix: 1000, Tape les monstres au sol en degats de zone");
+		sdlApplyText(menu->surfaceEcran, 2, 11, charBuffer, colorWhite, menu->policeMin);
 
-		helpLine = textToSurface("K: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 10);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Acheter un Canon", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 10);
-		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 2, Dommage: 500, Prix: 1000, Tape les monstres au sol en dégats de zone", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 11);
-		SDL_FreeSurface(underHelpLine);
+		sprintf(charBuffer,"V: ");
+		sdlApplyText(menu->surfaceEcran, 1, 12, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Vendre une tour");
+		sdlApplyText(menu->surfaceEcran, 2, 12, charBuffer, colorWhite, menu->police);
 
-		helpLine = textToSurface("V: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 12);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Vendre une tour", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 12);
-		SDL_FreeSurface(helpLine);
+		sprintf(charBuffer,"W: ");
+		sdlApplyText(menu->surfaceEcran, 1, 13, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Lancer une vague d'ennemies");
+		sdlApplyText(menu->surfaceEcran, 2, 13, charBuffer, colorWhite, menu->police);
 
-		helpLine = textToSurface("W: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 13);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Lancer une vague d'ennemies", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 13);
-		SDL_FreeSurface(helpLine);
+		sprintf(charBuffer,"Echap: ");
+		sdlApplyText(menu->surfaceEcran, 1, 14, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Retour au menu");
+		sdlApplyText(menu->surfaceEcran, 3, 14, charBuffer, colorWhite, menu->police);
 
-		helpLine = textToSurface("Echap: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 14);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Retour au menu", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 3, 14);
-		SDL_FreeSurface(helpLine);
+		sprintf(charBuffer,"S: ");
+		sdlApplyText(menu->surfaceEcran, 1, 15, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Augmenter / Diminuer la vitesse du jeu");
+		sdlApplyText(menu->surfaceEcran, 2, 15, charBuffer, colorWhite, menu->police);
 
-		helpLine = textToSurface("S: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 15);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Augmenter / Diminuer la vitesse du jeu", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 15);
-		SDL_FreeSurface(helpLine);
-
-		helpLine = textToSurface("I: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 16);
-		SDL_FreeSurface(helpLine);
-		helpLine = textToSurface("Passer en mode Infinity", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 16);
-		SDL_FreeSurface(helpLine);
+		sprintf(charBuffer,"I: ");
+		sdlApplyText(menu->surfaceEcran, 1, 16, charBuffer, colorRed, menu->police);
+		sprintf(charBuffer, "Passer en mode Infinity");
+		sdlApplyText(menu->surfaceEcran, 2, 16, charBuffer, colorWhite, menu->police);
 	}
 }
 
 int sdlMenuBoucle(Menu *menu)
 {
-	printf("Menu\n");
 	SDL_Event event;
 	int continuMenu = 1;
 	int returnVal = 0;
@@ -235,22 +211,25 @@ int sdlMenuBoucle(Menu *menu)
 					switch ((int)menu->cursor->position.y)
 					{
 						//jouer
-					case 5:
+					case 6:
 						returnVal = 1;
 						continuMenu = 0;
+						if(menu->cinematique)
+							cinematique(menu->surfaceEcran);
+						menu->cinematique = 0;
 						break;
 						//rejouer
-					case 7:
+					case 8:
 						returnVal = 2;
 						continuMenu = 0;
 						break;
 
 						//entre dans l'aide
-					case 9:
+					case 10:
 						menu->helpAff = 1;
 						break;
 						//quitter
-					case 11:
+					case 12:
 						returnVal = 0;
 						continuMenu = 0;
 					default:
@@ -287,3 +266,189 @@ void sdlMenuLibere(Menu *menu)
 	TTF_CloseFont(menu->policeMin);
 
 }
+
+void cinematique(SDL_Surface *ecran){
+	Sprite *ville = newSprite();
+	addSprite(ville, "data/menu/cinematique/ville.png");
+	addSprite(ville, "data/menu/cinematique/ville2.png");
+	addSprite(ville, "data/menu/cinematique/remember.png");
+
+	Sprite *dialogue = newSprite();
+	addSprite(dialogue, "data/menu/cinematique/dialogue/0.png");
+	addSprite(dialogue, "data/menu/cinematique/dialogue/1.png");
+	addSprite(dialogue, "data/menu/cinematique/dialogue/2.png");
+	addSprite(dialogue, "data/menu/cinematique/dialogue/3.png");
+	addSprite(dialogue, "data/menu/cinematique/dialogue/4.png");
+
+	Sprite *fire = newSprite();
+	addSprite(fire, "data/menu/cinematique/fire/0.png");
+	addSprite(fire, "data/menu/cinematique/fire/1.png");
+	addSprite(fire, "data/menu/cinematique/fire/2.png");
+	addSprite(fire, "data/menu/cinematique/fire/3.png");
+
+	Sprite *pers = newSprite();
+	addSprite(pers, "data/menu/cinematique/personnage/0.png");
+	addSprite(pers, "data/menu/cinematique/personnage/1.png");
+	addSprite(pers, "data/menu/cinematique/personnage/2.png");
+	addSprite(pers, "data/menu/cinematique/personnage/3.png");
+
+	sdlApplySurface(ville->sprites[0], ecran, -1, -1);
+	sdlApplySurface(ville->sprites[2], ecran, -1, -1);
+	SDL_Flip(ecran);
+
+	//#
+	//dialogue 1
+	sdlApplySurface(ville->sprites[0], ecran, -1, -1);
+	sdlApplySurface(ville->sprites[2], ecran, -1, -1);
+	sdlApplySurface(dialogue->sprites[0], ecran, 12.5, 7.5);
+
+	SDL_Delay(1500);
+	SDL_Flip(ecran);
+
+	//#
+	//dialogue 2
+	sdlApplySurface(ville->sprites[0], ecran, -1, -1);
+	sdlApplySurface(ville->sprites[2], ecran, -1, -1);
+	sdlApplySurface(dialogue->sprites[1], ecran, 13.5, 7.5);
+
+	SDL_Delay(1500);
+	SDL_Flip(ecran);
+
+	//#
+	//dialogue 3
+	sdlApplySurface(ville->sprites[0], ecran, -1, -1);
+	sdlApplySurface(ville->sprites[2], ecran, -1, -1);
+	sdlApplySurface(dialogue->sprites[2], ecran, 13.5, 7.5);
+
+	SDL_Delay(1500);
+	SDL_Flip(ecran);
+
+	//#
+	//mise en feu de la ville
+	sdlApplySurface(ville->sprites[0], ecran, -1, -1);
+	sdlApplySurface(ville->sprites[2], ecran, -1, -1);
+	sdlApplySurface(dialogue->sprites[2], ecran, 13.5, 7.5);
+
+	//fire
+	sdlApplySurface(fire->sprites[1], ecran, 4.6, 8.4);
+	sdlApplySurface(fire->sprites[0], ecran, 11, 4.6);
+
+	SDL_Delay(2000);
+	SDL_Flip(ecran);
+
+	//#
+	//Arrivé du personnage
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[0], ecran, 11, -1.5);
+
+	//fire
+	sdlApplySurface(fire->sprites[2], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 12);
+
+	SDL_Delay(2000);
+	SDL_Flip(ecran);
+
+	//#
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[1], ecran, 11, -1);
+
+	//fire
+	sdlApplySurface(fire->sprites[3], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 12);
+
+	SDL_Delay(100);
+	SDL_Flip(ecran);
+
+	//#
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[0], ecran, 11, -0.5);
+
+	//fire
+	sdlApplySurface(fire->sprites[2], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 12);
+
+	SDL_Delay(100);
+	SDL_Flip(ecran);
+
+	//#
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[2], ecran, 11, 0);
+
+	//fire
+	sdlApplySurface(fire->sprites[3], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 12);
+
+	SDL_Delay(100);
+	SDL_Flip(ecran);
+
+	//#
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[0], ecran, 11, 0);
+
+	//fire
+	sdlApplySurface(fire->sprites[2], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[3], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[2], ecran, 15, 12);
+
+	SDL_Delay(100);
+	SDL_Flip(ecran);
+
+	//#
+	sdlApplySurface(ville->sprites[1], ecran, -1, -1);
+	sdlApplySurface(pers->sprites[0], ecran, 11, 0);
+	sdlApplySurface(pers->sprites[3], ecran, 11.1, -1.2);
+
+	//fire
+	sdlApplySurface(fire->sprites[3], ecran, 5, 4.6);
+	sdlApplySurface(fire->sprites[2], ecran, 7, 3);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 4.6);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 5.4);
+	sdlApplySurface(fire->sprites[2], ecran, 13, 10);
+	sdlApplySurface(fire->sprites[3], ecran, 15, 12);
+
+	SDL_Delay(500);
+	SDL_Flip(ecran);
+
+	//#
+	//fin personnage
+	//Message du personnage
+	sdlApplySurface(dialogue->sprites[3], ecran, -1, -1);
+
+	SDL_Delay(1500);
+	SDL_Flip(ecran);
+
+	//#
+	//fin personnage
+	//Message de debut
+	SDL_FillRect(ecran, &ecran->clip_rect, SDL_MapRGB(ecran->format, 0x00, 0x00, 0x00));
+	sdlApplySurface(dialogue->sprites[4], ecran, -1, -1);
+
+	SDL_Delay(2000);
+	SDL_Flip(ecran);
+
+	SDL_Delay(2000);
+}
+
+
+
+
+

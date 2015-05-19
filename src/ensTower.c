@@ -58,6 +58,7 @@ int buyTower(EnsTower **ensTower, unsigned char type, int posX, int posY, int *g
 	}
 	setTowerPosition(t, posX, posY);
 	setProjectilePosition(getTowerProjectile(t), getTowerPosition(t));
+	setProjectileOrigin(getTowerProjectile(t), getTowerPosition(t));
 
 	if(*gold >= getTowerCost(t)){
 		addEnsTower(*ensTower, t);
@@ -89,7 +90,7 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 				//Si c'est un mage ou un archer
 				if ((t->type == 'M') || (t->type == 'A'))
 				{
-					attackTowerEnemy(t, enemys->tab[iE]->id);
+					attackTowerEnemy(t, getEnemyId(enemys->tab[iE]));
 					e = getEnemyfromID(enemys, enemys->tab[iE]->id);
 					changeTarget(getTowerProjectile(t), e, getTowerPosition(t));
 
@@ -99,7 +100,7 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 						slowEnemy(e, 100, 1000);
 						updateEnemy(enemys->tab[iE]);
 					}
-					takeEnemyDamage(e, t->dmg);
+					takeEnemyDamage(e, getTowerDmg(t));
 				}
 				//Si c'est un canon ou un chevalier
 				else if ((t->type == 'K') || (t->type == 'C'))
@@ -113,14 +114,20 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 							//attaque en zone
 							for (i=0;	i < getEnsEnemyNb(enemys); i++)
 							{
-								if (i != iE){
+								attackTowerEnemy(t, getEnemyId(enemys->tab[iE]));
+								e = getEnemyfromID(enemys, getEnemyId(enemys->tab[iE]));
+								changeTarget(getTowerProjectile(t), e, getTowerPosition(t));
+								takeEnemyDamage(e, getTowerDmg(t));
+										
+								if (i != iE)
+								{
 									dist = getCoordsDistance(getEnemyPosition (enemys->tab[i]), getEnemyPosition (enemys->tab[iE]));
 									if (dist <= 2 && dist > 0)
 									{
 										attackTowerEnemy(t, getEnemyId(enemys->tab[i]));
 										e = getEnemyfromID(enemys, getEnemyId(enemys->tab[i]));
-										takeEnemyDamage(e, getTowerDmg(t));
 										changeTarget(getTowerProjectile(t), e, getTowerPosition(t));
+										takeEnemyDamage(e, getTowerDmg(t));
 									}
 								}
 							}
@@ -132,16 +139,8 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 							takeEnemyDamage(e, getTowerDmg(t));
 						}
 					}
-				}
-			//}
-		}
-		/*else{
-		Enemy *plop = newEnemy('c',1);
-		setEnemyPosition(plop, t->position.x, t->position.y);
-		changeTarget(t->shot, plop, &(t->position));
-		}*/
-
-
+			}
+		} 
 	}
 }
 

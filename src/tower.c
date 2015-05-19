@@ -129,7 +129,7 @@ void evolveTower (Tower *t, int *gold)
 
 void attackTowerEnemy(Tower *t, const int id)
 {
-	setTowerId(t, id);
+	setTowerTarget(t, id);
 	setTowerTimer(t,getTowerDefaultTimer(t));
 }
 

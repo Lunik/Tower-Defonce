@@ -110,7 +110,7 @@ void evolveEnemy (Enemy *e, int wave)
 		setEnemyHP(e,getEnemyHP(e)+getEnemyHP(e)*wave*wave);
 		setEnemyMaxHp(e,getEnemyHP(e));
 		setEnemyLoot(e,getEnemyLoot(e)+getEnemyLoot(e)*wave);
-		setEnemyDmg(e,getEnemyDmg(e)+getEnemyDmg(e)*wave*wave);
+		setEnemyDmg(e,getEnemyDmg(e)+getEnemyDmg(e)*wave);
 	}
 	else
 	{

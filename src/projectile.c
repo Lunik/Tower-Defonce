@@ -8,9 +8,9 @@
  {
 	 p->direction.x = p->target->position.x - p->position.x;
 	 p->direction.y = p->target->position.y - p->position.y;
-	 printf("%f %f\n", p->direction.x, p->direction.y);
+	 //printf("La direction : %f %f  \n", p->direction.x, p->direction.y);
 	 normaliseCoord(&(p->direction));
-	 printf("%f %f\n", p->direction.x, p->direction.y);
+	 //printf("%f %f\n", p->direction.x, p->direction.y);
 }
 
 
@@ -56,26 +56,28 @@ Projectile*  newProjectile(Coord orig, char type)
 
 void updateProjectile(Projectile* p)
 {
-	if (p->target== NULL || getCoordsDistance(p->position, p->target->position) < 0.5 )
+	//printf("origine : %f %f", p->origin.x, p->origin.y); //testatuin
+	
+	if ( (p->target== NULL) || (getCoordsDistance(p->position, p->target->position) < 0.2) || p->target->hp <=0 )
 	{	
 
-		printf("youplaboum \n");
+		//printf("youplaboum \n");
 		
 		changeTarget(p,NULL,&(p->origin));
 	}
 	else{
-	Coord move;
-	directionTotarget(p);
-	move = multipliedCoord(&(p->direction), 0.5);
-	addCoords(&(p->position), &move);
-    printf("%f %f, %f %f\n",p->target->position.x,p->target->position.y, p->position.x, p->position.y);}
-	/*
-	}*/
+		Coord move;
+		directionTotarget(p);
+		move = multipliedCoord(&(p->direction), 0.2);
+		addCoords(&(p->position), &move);
+    	//printf("L'ennemi: %f %f,Target %d, PV ennemi : %d\n",p->target->position.x,p->target->position.y, p->target,p->target->hp);
+	}
+
 }
 	
-void setProjectilePosition(Projectile* p,const  Coord* new)
+void setProjectilePosition(Projectile* p,const  Coord* newp)
 {
-	setCoordonates(&(p->position), new->x, new->y);
+	setCoordonates(&(p->position), newp->x, newp->y);
 }
 
 void setProjectileCoordonates(Projectile* p,double x, double y)
@@ -83,13 +85,23 @@ void setProjectileCoordonates(Projectile* p,double x, double y)
 	setCoordonates(&(p->position), x, y);
 }
 
-Coord getProjectilePosition (const Projectile *p)
+Coord* getProjectilePosition ( Projectile *p)
 {
-	return p->position;
+	return &(p->position);
 }
 
 	
 	
+void setProjectileOrigin(Projectile* p,const Coord* orig)
+{
+	setCoordonates(&(p->origin), orig->x, orig->y);
+	
+}
+
+Coord getProjectileOrigin(const Projectile* p)
+{
+	return p->origin;
+}
 
 void killProjectile(Projectile* p )
 {

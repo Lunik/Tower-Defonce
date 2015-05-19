@@ -22,7 +22,7 @@ typedef struct
 	Sprite* Terrain;
 	Sprite* Path;
 	Sprite* Grotte;
-	Sprite* Castle;
+	Sprite* Ville;
 
 	Sprite* TowerAura;
 	Sprite* TowerKnight;

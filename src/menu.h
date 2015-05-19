@@ -24,6 +24,7 @@ struct sMenu{
 	TTF_Font *policeMin;
 
 	int helpAff;
+	int cinematique;
 };
 typedef struct sMenu Menu;
 
@@ -51,4 +52,7 @@ int sdlMenuBoucle(Menu *menu);
 * @param menu Pointeur sur Menu
 */
 void sdlMenuLibere(Menu *menu);
+
+void cinematique(SDL_Surface *ecran);
+
 #endif
