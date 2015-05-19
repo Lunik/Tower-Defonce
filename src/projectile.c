@@ -1,6 +1,5 @@
 #include "projectile.h"
-#include <stdio.h>																																																																															//maaaalbosssssss
-//bobobobobomalboooooosss
+#include <stdio.h>
 #include <stdlib.h>
 
  
@@ -36,6 +35,7 @@ Projectile*  newProjectile(Coord orig, char type)
     p = malloc(sizeof(Projectile));
     setCoordonates(&(p->position), orig.x, orig.y);
     p->target = NULL;
+    p->origin = orig;
     
 
    /* switch (type) {
@@ -56,24 +56,31 @@ Projectile*  newProjectile(Coord orig, char type)
 
 void updateProjectile(Projectile* p)
 {
-	Coord move;
-	directionTotarget(p);
-	//printf("%f", p->speed);
-	move = multipliedCoord(&(p->direction), 0.2);
-	addCoords(&(p->position), &move);
-    printf("%f %f, %f %f\n",move.x,move.y, p->position.x, p->position.y);
-	/*if (p->target || getCoordsDistance(p->position, p->target->position) <= 1.0)
+	if (p->target== NULL || getCoordsDistance(p->position, p->target->position) < 0.5 )
 	{	
 
 		printf("youplaboum \n");
-		free(p);
-		p=NULL;
+		
+		changeTarget(p,NULL,&(p->origin));
+	}
+	else{
+	Coord move;
+	directionTotarget(p);
+	move = multipliedCoord(&(p->direction), 0.5);
+	addCoords(&(p->position), &move);
+    printf("%f %f, %f %f\n",p->target->position.x,p->target->position.y, p->position.x, p->position.y);}
+	/*
 	}*/
 }
 	
 void setProjectilePosition(Projectile* p,const  Coord* new)
 {
 	setCoordonates(&(p->position), new->x, new->y);
+}
+
+void setProjectileCoordonates(Projectile* p,double x, double y)
+{
+	setCoordonates(&(p->position), x, y);
 }
 
 Coord getProjectilePosition (const Projectile *p)
@@ -83,7 +90,7 @@ Coord getProjectilePosition (const Projectile *p)
 
 	
 	
-//malboss malboss
+
 void killProjectile(Projectile* p )
 {
 	free(p);

@@ -23,8 +23,9 @@ typedef struct{
  @param x position en X
  @param y position en y
  */
-void sdlApplySurface(SDL_Surface* source, SDL_Surface* destination, int x, int y);
+void sdlApplySurface(SDL_Surface* source, SDL_Surface* destination, double x, double y);
 
+void sdlApplyText(SDL_Surface *destination, double x, double y, char text[255], SDL_Color color, TTF_Font *police);
 /**
  @brief Charge une image
  @param filename chemin d'acces à l'image

@@ -1,7 +1,5 @@
 #include "menu.h"
 
-const int TAILLE_MENU=32;
-
 void sdlMenuInit(Menu *menu,SDL_Surface *surfaceEcran)
 {
 	menu->surfaceEcran = surfaceEcran;
@@ -37,6 +35,7 @@ void sdlMenuInit(Menu *menu,SDL_Surface *surfaceEcran)
 
 void sdlMenuAff(Menu *menu)
 {
+	char charBuffer[255];
 	SDL_Color colorWhite = {255, 255, 255};
 	SDL_Color colorRed = {200, 0, 0};
 
@@ -47,122 +46,118 @@ void sdlMenuAff(Menu *menu)
 	//sdlApplySurface(menu->surfaceBackground, menu->surfaceEcran, 1*TAILLE_MENU, 1*TAILLE_MENU);
 
 	//Afficher le titre
-	sdlApplySurface(menu->Title->sprites[0], menu->surfaceEcran, 5*TAILLE_MENU, 1*TAILLE_MENU);
+	sdlApplySurface(menu->Title->sprites[0], menu->surfaceEcran, 5, 1);
 
 
 	if (!menu->helpAff)
 	{
 		//Afficher les cases menu
 		//jouer
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8*TAILLE_MENU, 5*TAILLE_MENU);
-		SDL_Surface *playBut = textToSurface("Jouer", colorWhite, menu->police);
-		sdlApplySurface(playBut, menu->surfaceEcran, 10*TAILLE_MENU, 5*TAILLE_MENU+TAILLE_MENU/6);
-		SDL_FreeSurface(playBut);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8U, 5);
+		sprintf(charBuffer, "Jouer");
+		sdlApplyText(menu->surfaceEcran, 10, 5.1, charBuffer, colorWhite, menu->police);
 
 		//restart
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8*TAILLE_MENU, 7*TAILLE_MENU);
-		SDL_Surface *restart = textToSurface("Recommencer", colorWhite, menu->police);
-		sdlApplySurface(restart, menu->surfaceEcran, 9*TAILLE_MENU, 7*TAILLE_MENU+TAILLE_MENU/6);
-		SDL_FreeSurface(restart);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 7);
+		sprintf(charBuffer, "Recommencer");
+		sdlApplyText(menu->surfaceEcran, 9, 7.1, charBuffer, colorWhite, menu->police);
 
 		//Aide
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8*TAILLE_MENU, 9*TAILLE_MENU);
-		SDL_Surface *stats = textToSurface("Aide", colorWhite, menu->police);
-		sdlApplySurface(stats, menu->surfaceEcran, 10*TAILLE_MENU+TAILLE_MENU/4, 9*TAILLE_MENU+TAILLE_MENU/6);
-		SDL_FreeSurface(stats);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 9);
+		sprintf(charBuffer, "Aide");
+		sdlApplyText(menu->surfaceEcran, 10.25, 9.1, charBuffer, colorWhite, menu->police);
 
 		//quiter
-		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8*TAILLE_MENU, 11*TAILLE_MENU);
-		SDL_Surface *quitBut = textToSurface("Quitter", colorWhite, menu->police);
-		sdlApplySurface(quitBut, menu->surfaceEcran, 10*TAILLE_MENU-TAILLE_MENU/4, 11*TAILLE_MENU+TAILLE_MENU/6);
-		SDL_FreeSurface(quitBut);
+		sdlApplySurface(menu->Button->sprites[0], menu->surfaceEcran, 8, 11);
+		sprintf(charBuffer, "Quitter");
+		sdlApplyText(menu->surfaceEcran, 10, 11.1, charBuffer, colorWhite, menu->police);
 
-		sdlApplySurface(menu->Cursor->sprites[0], menu->surfaceEcran, menu->cursor->position.x*TAILLE_MENU, menu->cursor->position.y*TAILLE_MENU);
+		sdlApplySurface(menu->Cursor->sprites[0], menu->surfaceEcran, menu->cursor->position.x, menu->cursor->position.y);
 	} 
 	else 
 	{
 		//Affiche l'aide
 		//titre
 		SDL_Surface *quitBut = textToSurface("Aide", colorWhite, menu->police);
-		sdlApplySurface(quitBut, menu->surfaceEcran, 9*TAILLE_MENU, 3*TAILLE_MENU);
+		sdlApplySurface(quitBut, menu->surfaceEcran, 9, 3);
 		SDL_FreeSurface(quitBut);
 
 		SDL_Surface *helpLine;
 		SDL_Surface *underHelpLine;
 
 		helpLine = textToSurface("K: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 4*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 4);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Acheter un Chevalier", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 4*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 4);
 		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 1, Dommage: 150, Prix: 150, Tape les monstres au sol", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2*TAILLE_MENU, 5*TAILLE_MENU);
+		underHelpLine = textToSurface("Rayon d'action: 1.2, Dommage: 150, Prix: 150, Tape les monstres au sol", colorWhite, menu->policeMin);
+		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 5);
 		SDL_FreeSurface(underHelpLine);
 
 		helpLine = textToSurface("A: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 6*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 6);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Acheter un Archer", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 6*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 6);
 		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 2.6, Dommage: 80, Prix: 300, Tape les monstres au sol et volants", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2*TAILLE_MENU, 7*TAILLE_MENU);
+		underHelpLine = textToSurface("Rayon d'action: 3.6, Dommage: 80, Prix: 300, Tape les monstres au sol et volants", colorWhite, menu->policeMin);
+		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 7);
 		SDL_FreeSurface(underHelpLine);
 
 		helpLine = textToSurface("M: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 8*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 8);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Acheter un Mage", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 8*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 8);
 		SDL_FreeSurface(helpLine);
 		underHelpLine = textToSurface("Rayon d'action: 2.1, Dommage: 100, Prix: 500, Tape les monstres au sol et volants, Inflige un ralentissement des enemies", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2*TAILLE_MENU, 9*TAILLE_MENU);
+		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 9);
 		SDL_FreeSurface(underHelpLine);
 
 		helpLine = textToSurface("K: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 10*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 10);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Acheter un Canon", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 10*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 10);
 		SDL_FreeSurface(helpLine);
-		underHelpLine = textToSurface("Rayon d'action: 2, Dommage: 50, Prix: 1000, Tape les monstres au sol en dégats de zone", colorWhite, menu->policeMin);
-		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2*TAILLE_MENU, 11*TAILLE_MENU);
+		underHelpLine = textToSurface("Rayon d'action: 2, Dommage: 500, Prix: 1000, Tape les monstres au sol en dégats de zone", colorWhite, menu->policeMin);
+		sdlApplySurface(underHelpLine, menu->surfaceEcran, 2, 11);
 		SDL_FreeSurface(underHelpLine);
 
 		helpLine = textToSurface("V: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 12*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 12);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Vendre une tour", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 12*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 12);
 		SDL_FreeSurface(helpLine);
 
 		helpLine = textToSurface("W: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 13*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 13);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Lancer une vague d'ennemies", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 13*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 13);
 		SDL_FreeSurface(helpLine);
 
 		helpLine = textToSurface("Echap: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 14*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 14);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Retour au menu", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 3*TAILLE_MENU, 14*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 3, 14);
 		SDL_FreeSurface(helpLine);
 
 		helpLine = textToSurface("S: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 15*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 15);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Augmenter / Diminuer la vitesse du jeu", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 15*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 15);
 		SDL_FreeSurface(helpLine);
 
 		helpLine = textToSurface("I: ", colorRed, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 1*TAILLE_MENU, 16*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 1, 16);
 		SDL_FreeSurface(helpLine);
 		helpLine = textToSurface("Passer en mode Infinity", colorWhite, menu->police);
-		sdlApplySurface(helpLine, menu->surfaceEcran, 2*TAILLE_MENU, 16*TAILLE_MENU);
+		sdlApplySurface(helpLine, menu->surfaceEcran, 2, 16);
 		SDL_FreeSurface(helpLine);
 	}
 }

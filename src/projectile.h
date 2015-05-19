@@ -11,6 +11,7 @@ struct sProjectile{
 	Enemy* target;
 	Coord position;
 	Coord direction;
+	Coord origin;
 	//double speed;
 		
 };typedef struct  sProjectile Projectile;
@@ -32,4 +33,5 @@ void killProjectile(Projectile* p);
 void setProjectilePosition(Projectile* p,const  Coord* new);
 
 Coord getProjectilePosition (const Projectile *p);
+void setProjectileCoordonates(Projectile* p,double x, double y);
 #endif

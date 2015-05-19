@@ -1,5 +1,5 @@
 #include "sdlFct.h"
-
+const int TAILLE_SPRITE=32;
 
 SDL_Surface *sdlLoadImage(const char* filename){
     /* Temporary storage for the image that's loaded */
@@ -10,16 +10,23 @@ SDL_Surface *sdlLoadImage(const char* filename){
 }
 
 
-void sdlApplySurface(SDL_Surface* source, SDL_Surface* destination, int x, int y){
+void sdlApplySurface(SDL_Surface* source, SDL_Surface* destination, double x, double y){
     /* Make a temporary rectangle to hold the offsets */
     SDL_Rect offset;
 
     /* Give the offsets to the rectangle */
-    offset.x = x+32;
-    offset.y = y+32;
+    offset.x = (x*TAILLE_SPRITE)+TAILLE_SPRITE;
+    offset.y = (y*TAILLE_SPRITE)+TAILLE_SPRITE;
     
     /* Blit the suace */
     SDL_BlitSurface( source, NULL, destination, &offset );
+}
+
+void sdlApplyText(SDL_Surface *destination, double x, double y, char text[255], SDL_Color color, TTF_Font *police){
+	SDL_Surface *surface;
+	surface = textToSurface(text, color, police);
+	sdlApplySurface(surface, destination, x, y);
+	SDL_FreeSurface(surface);
 }
 
 SDL_Surface *textToSurface(char txt[255], SDL_Color color, TTF_Font *police){

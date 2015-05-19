@@ -1,6 +1,6 @@
 #include "gameSDL.h"
 //salut
-const int TAILLE_SPRITE=32;
+
 
 void sdlMapInit(sdlMap *sdMap)
 {
@@ -23,8 +23,8 @@ void sdlMapInit(sdlMap *sdMap)
 	sdMap->interface->cursor->max.x = dimx-1;
 	sdMap->interface->cursor->max.y = dimy-1;
 
-	dimx = (dimx+10) * TAILLE_SPRITE;
-	dimy = (dimy+5) * TAILLE_SPRITE;
+	dimx = (dimx+10) * 32;
+	dimy = (dimy+5) * 32;
 
 	//Creation de l'ecran
 	setSdlMapEcran(sdMap,SDL_SetVideoMode(dimx, dimy, 32, SDL_SWSURFACE));
@@ -116,6 +116,7 @@ void sdlMapInit(sdlMap *sdMap)
 	}
 
 	//Chargement des polices
+	sdMap->policeMax = TTF_OpenFont("data/font.ttf", 70);
 	sdMap->police = TTF_OpenFont("data/font.ttf", 20);
 	sdMap->policeMin = TTF_OpenFont("data/font.ttf", 12);
 	SDL_EnableKeyRepeat(100, 100);
@@ -138,15 +139,28 @@ void sdlMapAff(const sdlMap *sdMap)
 
 void sdlTerrainAff(const sdlMap *sdMap)
 {
-	int x,y;
+	int x,y,i;
 	Map *map = getSdlMap(sdMap);
 	Coord dim = getMapDim(map);
 	//affichage terrain
 	if (sdMap->infinityMode)
 	{
-		sdlApplySurface(sdMap->Terrain->sprites[1], getSdlMapEcran(sdMap), -TAILLE_SPRITE, -TAILLE_SPRITE);
+		sdlApplySurface(sdMap->Terrain->sprites[1], getSdlMapEcran(sdMap), -1, -1);
+		
+		//Affichage du mode
+		SDL_Color colorWhite = {255, 255, 255};
+		SDL_Surface *surface;
+		surface = textToSurface("INFINITY MODE", colorWhite, sdMap->policeMax);
+		sdlApplySurface(surface, getSdlMapEcran(sdMap), 1, 15.5);
+		SDL_FreeSurface(surface);
+		
+		for(i=0; i<13; i++){
+			updateSprite(sdMap->TowerAura);
+			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), i, 17);
+		}
+		
 	} else {
-		sdlApplySurface(sdMap->Terrain->sprites[0], getSdlMapEcran(sdMap), -TAILLE_SPRITE, -TAILLE_SPRITE);
+		sdlApplySurface(sdMap->Terrain->sprites[0], getSdlMapEcran(sdMap), -1, -1);
 	}
 
 	//Affichage chemin
@@ -156,18 +170,18 @@ void sdlTerrainAff(const sdlMap *sdMap)
 		{
 			if (getCellPath(map->grid[y][x]))
 			{
-				sdlApplySurface(sdMap->Path->sprites[0], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+				sdlApplySurface(sdMap->Path->sprites[0], getSdlMapEcran(sdMap), x, y);
 			}
 		}
 	}
 
 	Coord end = getMapEnd(map);
 	//Affichage chateau
-	sdlApplySurface(sdMap->Castle->sprites[0], getSdlMapEcran(sdMap), end.y*TAILLE_SPRITE, (end.x-1)*TAILLE_SPRITE);
+	sdlApplySurface(sdMap->Castle->sprites[0], getSdlMapEcran(sdMap), end.y, (end.x-1));
 
 	Coord start = getMapStart(map);
 	//affichage arrive des monstres
-	sdlApplySurface(sdMap->Grotte->sprites[0], getSdlMapEcran(sdMap), (start.y-1)*TAILLE_SPRITE, (start.x-1)*TAILLE_SPRITE);
+	sdlApplySurface(sdMap->Grotte->sprites[0], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
 }
 
 void sdlEnemyAff(const sdlMap *sdMap)
@@ -188,32 +202,32 @@ void sdlEnemyAff(const sdlMap *sdMap)
 		switch (getEnemyType(e)){
 		case 'C':
 			iSprite = getSpriteFromTimer(sdMap->EnemyClassic, getEnemyBaseMoveTimer(e), getEnemyMoveTimer(e));
-			sdlApplySurface(sdMap->EnemyClassic->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->EnemyClassic->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		case 'F':
 			iSprite = getSpriteFromTimer(sdMap->EnemyFly, getEnemyBaseMoveTimer(e), getEnemyMoveTimer(e));
-			sdlApplySurface(sdMap->EnemyFly->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->EnemyFly->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		case 'B':
 			iSprite = getSpriteFromTimer(sdMap->EnemyBoss, getEnemyBaseMoveTimer(e), getEnemyMoveTimer(e));
-			sdlApplySurface(sdMap->EnemyBoss->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->EnemyBoss->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		}
 
 		//Barre de vie
 		if (getEnemyHP(e) == getEnemyMaxHp(e)) 
 		{
-			sdlApplySurface(sdMap->Life->sprites[5], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[5], getSdlMapEcran(sdMap), x, y);
 		} else if(getEnemyHP(e) >= getEnemyMaxHp(e)*0.8 && getEnemyHP(e) < getEnemyMaxHp(e)){
-			sdlApplySurface(sdMap->Life->sprites[4], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[4], getSdlMapEcran(sdMap), x, y);
 		} else if(getEnemyHP(e) >= getEnemyMaxHp(e)*0.6 && getEnemyHP(e) < getEnemyMaxHp(e)*0.8){
-			sdlApplySurface(sdMap->Life->sprites[3], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[3], getSdlMapEcran(sdMap), x, y);
 		} else if(getEnemyHP(e) >= getEnemyMaxHp(e)*0.4 && getEnemyHP(e) < getEnemyMaxHp(e)*0.6){
-			sdlApplySurface(sdMap->Life->sprites[2], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[2], getSdlMapEcran(sdMap), x, y);
 		} else if(getEnemyHP(e) >= getEnemyMaxHp(e)*0.2 && getEnemyHP(e) < getEnemyMaxHp(e)*0.4){
-			sdlApplySurface(sdMap->Life->sprites[1], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[1], getSdlMapEcran(sdMap), x, y);
 		} else if(getEnemyHP(e) >= 0 && getEnemyHP(e) < getEnemyHP(e)*0.2){
-			sdlApplySurface(sdMap->Life->sprites[0], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->Life->sprites[0], getSdlMapEcran(sdMap), x, y);
 		}
 	}
 }
@@ -235,7 +249,7 @@ void sdlTowerAff(const sdlMap *sdMap)
 		if (getTowerLvl(t) == 5) 
 		{
 			updateSprite(sdMap->TowerAura);
-			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), (x-1)*TAILLE_SPRITE, (y-1)*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), (x-1), (y-1));
 		}
 
 		Projectile *p = getTowerProjectile(t);
@@ -249,27 +263,27 @@ void sdlTowerAff(const sdlMap *sdMap)
 		case 'A':
 			//Affiche le projectile
 			if(p != NULL)
-				sdlApplySurface(sdMap->Projectile->sprites[1], getSdlMapEcran(sdMap), px*TAILLE_SPRITE, py*TAILLE_SPRITE);
+				sdlApplySurface(sdMap->Projectile->sprites[1], getSdlMapEcran(sdMap), px, py);
 			iSprite = getSpriteFromTimer(sdMap->TowerArcher, getTowerDefaultTimer(t), getTowerTimer(t));
-			sdlApplySurface(sdMap->TowerArcher->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->TowerArcher->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		case 'K':
 			iSprite = getSpriteFromTimer(sdMap->TowerKnight, getTowerDefaultTimer(t), getTowerTimer(t));
-			sdlApplySurface(sdMap->TowerKnight->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->TowerKnight->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		case 'M':
 			//Affiche le projectile
 			if(p != NULL)
-				sdlApplySurface(sdMap->Projectile->sprites[0], getSdlMapEcran(sdMap), px*TAILLE_SPRITE, py*TAILLE_SPRITE);
+				sdlApplySurface(sdMap->Projectile->sprites[0], getSdlMapEcran(sdMap), px, py);
 			iSprite = getSpriteFromTimer(sdMap->TowerMage, getTowerDefaultTimer(t), getTowerTimer(t));
-			sdlApplySurface(sdMap->TowerMage->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->TowerMage->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		case 'C':
 			//Affiche le projectile
 			if(p != NULL)
-				sdlApplySurface(sdMap->Projectile->sprites[2], getSdlMapEcran(sdMap), px*TAILLE_SPRITE, py*TAILLE_SPRITE);
+				sdlApplySurface(sdMap->Projectile->sprites[2], getSdlMapEcran(sdMap), px, py);
 			iSprite = getSpriteFromTimer(sdMap->TowerCannon, getTowerDefaultTimer(t), getTowerTimer(t));
-			sdlApplySurface(sdMap->TowerCannon->sprites[iSprite], getSdlMapEcran(sdMap), x*TAILLE_SPRITE, y*TAILLE_SPRITE);
+			sdlApplySurface(sdMap->TowerCannon->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
 		}
 	}
@@ -290,10 +304,10 @@ void sdlInterfaceAff(const sdlMap *sdMap)
 	cx = cpos.x;
 	cy = cpos.y;
 	//Affichage du curseur
-	sdlApplySurface(sdMap->Cursor->sprites[0], getSdlMapEcran(sdMap), cx*TAILLE_SPRITE, cy*TAILLE_SPRITE);
+	sdlApplySurface(sdMap->Cursor->sprites[0], getSdlMapEcran(sdMap), cx, cy);
 
 	//Affichage background interface gauche
-	sdlApplySurface(sdMap->InterfaceBackground->sprites[0], getSdlMapEcran(sdMap), (baseY+1)*TAILLE_SPRITE, -1*TAILLE_SPRITE*0.6);
+	sdlApplySurface(sdMap->InterfaceBackground->sprites[0], getSdlMapEcran(sdMap), (baseY+1), -0.6);
 
 	char charBuffer[255];
 	SDL_Surface *surface;
@@ -307,62 +321,50 @@ void sdlInterfaceAff(const sdlMap *sdMap)
 
 	//affichage gold
 	sprintf(charBuffer, "Or: %d", getMapGold(map));
-	surface = textToSurface(charBuffer, colorYellow, sdMap->police);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 0*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 0, charBuffer, colorYellow, sdMap->police);
 
 	//affichage life
 	sprintf(charBuffer, "Vie: %d", getMapLife(map));
-	surface = textToSurface(charBuffer, colorRed, sdMap->police);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 1*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 1, charBuffer, colorRed, sdMap->police);
 
 	//affichage vague
 	sprintf(charBuffer, "Wave: %d", getMapWave(map));
-	surface = textToSurface(charBuffer, colorBlack, sdMap->police);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 3*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 3, charBuffer, colorBlack, sdMap->police);
 
 	//affichage aide pour nouvelle vague
 	if (isWaveEnd(map)) 
 	{
-		surface = textToSurface("\'W\' pour une nouvelle vague", colorBlack, sdMap->policeMin);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 3*TAILLE_SPRITE+TAILLE_SPRITE/1.5);
-		SDL_FreeSurface(surface);
+		sprintf(charBuffer, "\'W\' pour une nouvelle vague");
+		sdlApplyText(getSdlMapEcran(sdMap), baseX, 3.6, charBuffer, colorBlack, sdMap->policeMin);
 	}
 
 
 	//affichage ennemies restant
-	surface = textToSurface("Ennemies restant:", colorBlack, sdMap->police);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 5*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sprintf(charBuffer, "Ennemies restant:");
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 5, charBuffer, colorBlack, sdMap->police);
 
 	//affichage nb enemies restant
 	sprintf(charBuffer, "%d", getEnsEnemyNb(getMapEnemys(map)));
-	surface = textToSurface(charBuffer, colorBlack, sdMap->policeMin);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 6*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 6, charBuffer, colorBlack, sdMap->policeMin);
 
 	//Affichage de la vitesse
 	if (getSdlMapSpeed(sdMap)) 
 	{
-		surface = textToSurface("Vitesse: x2", colorBlack, sdMap->police);
+		sprintf(charBuffer, "Vitesse: x2");
 	} else {
-		surface = textToSurface("Vitesse: x1", colorBlack, sdMap->police);
+		sprintf(charBuffer, "Vitesse: x1");
 	}
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 7*TAILLE_SPRITE);
-	SDL_FreeSurface(surface);
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 7, charBuffer, colorBlack, sdMap->police);
 
-	surface = textToSurface("\'S\' pour accelerer / ralentir", colorBlack, sdMap->policeMin);
-	sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, 7*TAILLE_SPRITE+TAILLE_SPRITE/1.5);
-	SDL_FreeSurface(surface);
+	sprintf(charBuffer, "\'S\' pour accelerer / ralentir");
+	sdlApplyText(getSdlMapEcran(sdMap), baseX, 7.6, charBuffer, colorBlack, sdMap->policeMin);
 
 	//affichage Tower sur le curseur
 	if(interface->tower != NULL)
 	{
 		Tower *ti = interface->tower;
 		//Affichage background interface tower
-		sdlApplySurface(sdMap->InterfaceBackground->sprites[1], getSdlMapEcran(sdMap), baseY*TAILLE_SPRITE+TAILLE_SPRITE*0.8, (baseX-2.5)*TAILLE_SPRITE);
+		sdlApplySurface(sdMap->InterfaceBackground->sprites[1], getSdlMapEcran(sdMap), baseY+0.8, (baseX-2.5));
 
 		//Affichage du range de la tower
 		int i,j;
@@ -378,7 +380,7 @@ void sdlInterfaceAff(const sdlMap *sdMap)
 				dist = getCoordsDistance(*tPos, map->grid[i][j]->position);
 				if( (dist >= tRangeMin) && (dist <= tRangeMax) )
 				{
-					sdlApplySurface(sdMap->Range->sprites[0], getSdlMapEcran(sdMap), i*TAILLE_SPRITE, j*TAILLE_SPRITE);
+					sdlApplySurface(sdMap->Range->sprites[0], getSdlMapEcran(sdMap), i, j);
 				}
 			}
 		}
@@ -406,34 +408,27 @@ void sdlInterfaceAff(const sdlMap *sdMap)
 			surface = sdMap->Path->sprites[0];
 			break;
 		}
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, (baseY+1)*TAILLE_SPRITE);
+		sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX, (baseY+1));
 
-		surface = textToSurface(charBuffer, colorBlack, sdMap->police);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), baseX*TAILLE_SPRITE, baseY*TAILLE_SPRITE);
-		SDL_FreeSurface(surface);
+		sdlApplyText(getSdlMapEcran(sdMap), baseX, baseY, charBuffer, colorBlack, sdMap->police);
 
 		//Affichage infos de la tower
 		sprintf(charBuffer, "Dommages %.0f", getTowerDmg(ti));
-		surface = textToSurface(charBuffer, colorBlack, sdMap->police);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), (baseX+3)*TAILLE_SPRITE, (baseY+1)*TAILLE_SPRITE);
-		SDL_FreeSurface(surface);
+		sdlApplyText(getSdlMapEcran(sdMap), baseX+3, baseY+1, charBuffer, colorBlack, sdMap->police);
 
 		sprintf(charBuffer, "\'E\' pour evoluer (%d gold)", getTowerCost(ti));
 		if(getTowerLvl(ti) < 5)
 		{
 			if(getTowerCost(ti) <= getMapGold(map))
 			{
-				surface = textToSurface(charBuffer, colorGreen, sdMap->policeMin);
+				sdlApplyText(getSdlMapEcran(sdMap), baseX+3, baseY+1.6, charBuffer, colorGreen, sdMap->policeMin);
 			} else {
-				surface = textToSurface(charBuffer, colorRed, sdMap->policeMin);
+				sdlApplyText(getSdlMapEcran(sdMap), baseX+3, baseY+1.6, charBuffer, colorRed, sdMap->policeMin);
 			}
 		}
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), (baseX+3)*TAILLE_SPRITE, (baseY+1)*TAILLE_SPRITE+TAILLE_SPRITE/1.5);
-		SDL_FreeSurface(surface);
-
-		surface = textToSurface("\'V\' pour vendre", colorBlack, sdMap->policeMin);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), (baseX+3)*TAILLE_SPRITE, (baseY+2)*TAILLE_SPRITE);
-		SDL_FreeSurface(surface);
+		
+		sprintf(charBuffer, "\'V\' pour vendre");
+		sdlApplyText(getSdlMapEcran(sdMap), baseX+3, baseY+2, charBuffer, colorBlack, sdMap->policeMin);
 
 	}
 }
@@ -477,6 +472,8 @@ void sdlMapBoucle(sdlMap *sdMap)
 			break;
 		case 2:
 			setSdlMap(sdMap,newMap(15, 15));
+			setSdlMapMode(sdMap, 0);
+			setSdlMapSpeed(sdMap, 0);
 			continuGame = 1;
 			resultMenu = 1;
 			break;
@@ -611,7 +608,11 @@ void sdlMapBoucle(sdlMap *sdMap)
 					}
 					break;
 				case SDLK_i:
-					setSdlMapMode(sdMap,1);
+					if(getSdlMapMode(sdMap)){
+						setSdlMapMode(sdMap,0);
+					} else {
+						setSdlMapMode(sdMap,1);
+					}
 					break;
 				default:
 					break;

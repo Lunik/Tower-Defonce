@@ -74,6 +74,15 @@ void addCoords (Coord* u, const Coord* v)
     setCoordonates(u, sumAbs, sumOrd);
 }
 
+
+void subCoords (Coord* u, const Coord* v)
+{
+    double sumOrd = u->y - v->y;
+    double sumAbs = u->x - v->x;
+    setCoordonates(u, sumAbs, sumOrd);
+}
+
+
 double getCoordNorm( Coord* v)
 {
     return sqrt((v->x*v->x) + (v->y*v->y));

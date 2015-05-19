@@ -39,7 +39,8 @@ typedef struct
 	Sprite* Cursor;
 	Sprite* Range;
 	Sprite* InterfaceBackground;
-
+	
+	TTF_Font *policeMax;
 	TTF_Font *police;
 	TTF_Font *policeMin;
 

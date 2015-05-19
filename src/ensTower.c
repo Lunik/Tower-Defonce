@@ -82,10 +82,10 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 	for (iE=0; iE < getEnsEnemyNb(enemys); iE++)
 	{
 		//Si la tour peut attaquer
-		if((isEnemyinrange(t, enemys->tab[iE]->position.x, enemys->tab[iE]->position.y)==1) && !getEnemyInvincible (enemys->tab[iE]))
+		if((isEnemyinrange(t, enemys->tab[iE]->position.x, enemys->tab[iE]->position.y)==1) && !getEnemyInvincible (enemys->tab[iE]) && t->attackTimer == 0 )
 		{
-			if (t->attackTimer == 0)
-			{
+			//if (t->attackTimer == 0)
+			//{
 				//Si c'est un mage ou un archer
 				if ((t->type == 'M') || (t->type == 'A'))
 				{
@@ -133,7 +133,7 @@ void interactionTower(Tower *t, EnsEnemy *enemys)
 						}
 					}
 				}
-			}
+			//}
 		}
 		/*else{
 		Enemy *plop = newEnemy('c',1);

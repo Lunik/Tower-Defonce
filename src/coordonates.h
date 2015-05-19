@@ -122,5 +122,7 @@ void freeCoord(Coord* coo);
 
 int equalCoords(Coord* a, Coord* b);
 
+void subCoord (Coord* u, const Coord v);
+
 void setCoord(Coord* a, const Coord b);
 #endif
