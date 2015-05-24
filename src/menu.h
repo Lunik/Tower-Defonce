@@ -53,6 +53,10 @@ int sdlMenuBoucle(Menu *menu);
 */
 void sdlMenuLibere(Menu *menu);
 
+/*
+@brief Lance la cinematique
+@param ecran SDL_Surface
+*/
 void cinematique(SDL_Surface *ecran);
 
 #endif

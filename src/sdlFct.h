@@ -42,26 +42,94 @@ SDL_Surface *sdlLoadImage(const char* filename);
  */
 SDL_Surface *textToSurface(char txt[255], SDL_Color color, TTF_Font *police);
 
+/**
+@brief Crée une structure Sprite initialisé
+@return Pointeur sur Sprite
+*/
 Sprite *newSprite();
 
+/*
+@brief Ajoute une image au Sprite
+@param s Pointeur sur Sprite
+@param path Chemin du fichier
+*/
 void addSprite(Sprite *s, char *path);
 
+/*
+@brief Met à jour le sprite
+@param s Pointeur sur Sprite
+*/
 void updateSprite(Sprite *s);
 
+/*
+@brief Remet le sprite à zero
+@param s Pointeur sur Sprite
+*/
 void resetSprite(Sprite *s);
 
+/*
+@brief Renvoi le numero du sprite conrespondant au timer (simple produit en croix: numeroSprite = (nbSprites * timer) / defaultTimer)
+@param s Pointeur sur Sprite
+@param defaultTimer Timer de base
+@param timer Timer courrant
+@return int Le numero de sprite correspondant
+*/
 int getSpriteFromTimer(Sprite *s, int defaultTimer, int timer);
 
+/*
+@brief Free une structure sprite
+@param s Pointeur sur Sprite
+*/
 void freeSprite(Sprite *s);
 
+/*
+@brief Retourne le nombre d'image dans le sprite
+@param s Pointeur sur Sprite
+@return int nb d'images
+*/
 int getSpriteNb(const Sprite *s);
+/*
+@brief Modifie le nombre d'images dans le sprite
+@param s Pointeur sur Sprite
+@param nb Nombre à modifier
+*/
 void setSpriteNb(Sprite *s, int nb);
 
+/*
+@brief Retourne numero d'image actuel
+@param s Pointeur sur Sprite
+@return int numero d'images
+*/
 int getSpriteActual(const Sprite *s);
+/*
+@brief Modifie numero d'image actuel
+@param s Pointeur sur Sprite
+@param actual numero d'images
+*/
 void setSpriteActual(Sprite *s, int actual);
 
+/*
+@brief Retourne Timer du sprite
+@param s Pointeur sur Sprite
+@return int Timer du sprite
+*/
 int getSpriteTimer(const Sprite *s);
+/*
+@brief Retourne le defaultTimer du sprite
+@param s Pointeur sur Sprite
+@return int dafaultTimer du sprite
+*/
 int getSpriteDefaultTimer(const Sprite *s);
 
+/*
+@brief Modifie le defaultTimer et Timer du sprite
+@param s Pointeur sur Sprite
+@param timer Timer du Sprite
+@param defaultTimer DefaultTimer du Sprite
+*/
 void setSpriteTimer(Sprite *s, int timer, int defaultTimer);
 #endif
+
+
+
+
