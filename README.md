@@ -1,11 +1,17 @@
 # TOWER DEFONCE
 
 # INSTALLATION
-Modifier le fichier Makefile en fonction de l'OS
+
+Modifier le fichier Makefile en fonction de l'OS:
+
 	OS = OSX ou OS = LINUX
 
-Puis compiler	
+Puis compiler:
+
 	./compiler
 
 # LANCER LE JEU
+
+Taper la commande:
+
 	bin/jeu
