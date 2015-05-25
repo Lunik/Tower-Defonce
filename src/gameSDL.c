@@ -673,6 +673,7 @@ void sdlMapLibere(sdlMap *sdMap)
 	freeSprite(sdMap->EnemyFly);
 	freeSprite(sdMap->EnemyClassic);
 	freeSprite(sdMap->EnemyBoss);
+	freeSprite(sdMap->Projectile);
 
 	freeSprite(sdMap->Cursor);
 	freeSprite(sdMap->Range);

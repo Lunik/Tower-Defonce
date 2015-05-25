@@ -264,7 +264,6 @@ void sdlMenuLibere(Menu *menu)
 
 	TTF_CloseFont(menu->police);
 	TTF_CloseFont(menu->policeMin);
-
 }
 
 void cinematique(SDL_Surface *ecran){
@@ -446,6 +445,11 @@ void cinematique(SDL_Surface *ecran){
 	SDL_Flip(ecran);
 
 	SDL_Delay(2000);
+
+	freeSprite(ville);
+	freeSprite(dialogue);
+	freeSprite(fire);
+	freeSprite(pers);
 }
 
 
