@@ -57,8 +57,11 @@ void sdlMapInit(sdlMap *sdMap)
 
 	sdMap->Projectile = newSprite();
     addSprite(sdMap->Projectile, "data/towers/projectile/0.png"); //mage
-    addSprite(sdMap->Projectile, "data/towers/projectile/1.png"); //archer
-    addSprite(sdMap->Projectile, "data/towers/projectile/2.png"); //canon
+    addSprite(sdMap->Projectile, "data/towers/projectile/1.png"); //canon
+    addSprite(sdMap->Projectile, "data/towers/projectile/2.png"); //archer
+    addSprite(sdMap->Projectile, "data/towers/projectile/3.png"); //archer
+    addSprite(sdMap->Projectile, "data/towers/projectile/4.png"); //archer
+    addSprite(sdMap->Projectile, "data/towers/projectile/5.png"); //archer
 
 	sdMap->EnemyClassic = newSprite();
 	addSprite(sdMap->EnemyClassic, "data/enemies/classic/0.png");
@@ -182,21 +185,6 @@ void sdlTerrainAff(const sdlMap *sdMap)
 		sdlApplySurface(sdMap->Grotte->sprites[1], getSdlMapEcran(sdMap), (start.y-1), (start.x-1));
 		sdlApplySurface(sdMap->Ville->sprites[0], getSdlMapEcran(sdMap), end.y, (end.x-6.7));
 	}
-
-
-	if(getSdlMapMode(sdMap)){
-		//Affichage du mode
-		SDL_Color colorWhite = {255, 255, 255};
-		SDL_Surface *surface;
-		surface = textToSurface("INFINITY MODE", colorWhite, sdMap->policeMax);
-		sdlApplySurface(surface, getSdlMapEcran(sdMap), 1, 15.5);
-		SDL_FreeSurface(surface);
-		
-		for(i=0; i<13; i++){
-			updateSprite(sdMap->TowerAura);
-			sdlApplySurface(sdMap->TowerAura->sprites[sdMap->TowerAura->actual], getSdlMapEcran(sdMap), i, 17);
-		}
-	}	
 	
 }
 
@@ -278,8 +266,25 @@ void sdlTowerAff(const sdlMap *sdMap)
 		{
 		case 'A':
 			//Affiche le projectile
-			if(p != NULL)
-				sdlApplySurface(sdMap->Projectile->sprites[1], getSdlMapEcran(sdMap), px, py);
+			if(p != NULL){
+				int spriteArcher = 2;
+				//diférentes direcions du sprite projectile
+				switch(map->towers->tab[i]->shot->spriteOrientation){
+					case 'd':
+						spriteArcher = 2;
+						break;
+					case 'b':
+						spriteArcher = 3;
+						break;
+					case 'g':
+						spriteArcher = 4;
+						break;
+					case 'h':
+						spriteArcher = 5;
+						break;
+				}
+				sdlApplySurface(sdMap->Projectile->sprites[spriteArcher], getSdlMapEcran(sdMap), px, py);
+			}
 			iSprite = getSpriteFromTimer(sdMap->TowerArcher, getTowerDefaultTimer(t), getTowerTimer(t));
 			sdlApplySurface(sdMap->TowerArcher->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;
@@ -297,7 +302,7 @@ void sdlTowerAff(const sdlMap *sdMap)
 		case 'C':
 			//Affiche le projectile
 			if(p != NULL)
-				sdlApplySurface(sdMap->Projectile->sprites[2], getSdlMapEcran(sdMap), px, py);
+				sdlApplySurface(sdMap->Projectile->sprites[1], getSdlMapEcran(sdMap), px, py);
 			iSprite = getSpriteFromTimer(sdMap->TowerCannon, getTowerDefaultTimer(t), getTowerTimer(t));
 			sdlApplySurface(sdMap->TowerCannon->sprites[iSprite], getSdlMapEcran(sdMap), x, y);
 			break;

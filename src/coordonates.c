@@ -166,3 +166,5 @@ void setCoords(Coord* a, const Coord* b)
 {
 	setCoordonates (a, b->x, b->y);
 }
+
+

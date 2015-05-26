@@ -8,9 +8,23 @@
  {
 	 p->direction.x = p->target->position.x - p->position.x;
 	 p->direction.y = p->target->position.y - p->position.y;
-	 //printf("La direction : %f %f  \n", p->direction.x, p->direction.y);
+	 
+	 if(fabs(p->direction.y) >= fabs(p->direction.x))
+	 {
+		 if (p->direction.y > 0)
+		 {p->spriteOrientation = 'b';}
+		 else 
+		 {p->spriteOrientation = 'h';}
+	 }
+	 else 
+	 {
+		 if (p->direction.x > 0)
+		 { p->spriteOrientation= 'd';}
+		 else
+		 {p->spriteOrientation = 'g';}
+		 }
 	 normaliseCoord(&(p->direction));
-	 //printf("%f %f\n", p->direction.x, p->direction.y);
+
 }
 
 
@@ -38,39 +52,27 @@ Projectile*  newProjectile(Coord orig, char type)
     p->origin = orig;
     
 
-   /* switch (type) {
-        case 'A':
-			p->speed= 1.0;
-            break;
-        case 'C':
-			p->speed = 0.005;
-            break;
-        case 'M':
-			p->speed = 0.005;
-            break;																																																									//malbossux
-    }*/																														
-    
+ 
     return p;
 }
 
 
 void updateProjectile(Projectile* p)
 {
-	//printf("origine : %f %f", p->origin.x, p->origin.y); //testatuin
+	
 	
 	if ( (p->target== NULL) || (getCoordsDistance(p->position, p->target->position) < 0.2) || p->target->hp <=0 )
 	{	
 
-		//printf("youplaboum \n");
+		
 		
 		changeTarget(p,NULL,&(p->origin));
 	}
 	else{
 		Coord move;
 		directionTotarget(p);
-		move = multipliedCoord(&(p->direction), 0.2);
+		move = multipliedCoord(&(p->direction), 0.3);
 		addCoords(&(p->position), &move);
-    	//printf("L'ennemi: %f %f,Target %d, PV ennemi : %d\n",p->target->position.x,p->target->position.y, p->target,p->target->hp);
 	}
 
 }
@@ -108,4 +110,6 @@ void killProjectile(Projectile* p )
 	free(p);
 	p=NULL;
 }
+
+
 

@@ -164,6 +164,7 @@ void updateTower(Tower *t)
 
 void destroyTower(Tower *t)
 {
+    killProjectile(t->shot);
     free(t);
     t = NULL;
 }
